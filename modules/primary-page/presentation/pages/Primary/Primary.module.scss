@@ -46,6 +46,12 @@
     bottom: 32px;
     left: 24px;
     cursor: pointer;
+    z-index: 100;
+    a {
+      width: inherit;
+      height: inherit;
+      display: inherit;
+    }
   }
 
   .sliderWrapper {

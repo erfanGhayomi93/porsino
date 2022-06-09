@@ -1,4 +1,4 @@
-import useAppController, { AppProps } from "./App.controller";
+import useAppController from "./App.controller";
 import styles from "./App.module.scss";
 import { Grow, CssBaseline, IconButton } from "@mui/material";
 import { SnackbarProvider } from "notistack";
@@ -6,7 +6,7 @@ import CloseIcon from "@mui/icons-material/Close";
 import WarningIcon from "@mui/icons-material/Warning";
 import LoadingComponent from "@/core/components/common/loading";
 
-export default function AppPage(props: AppProps) {
+export default function AppPage(props: any) {
   const { onClickDismiss, notistackRef, Component, pageProps } =
     useAppController(props);
 
