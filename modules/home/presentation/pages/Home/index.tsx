@@ -5,6 +5,7 @@ import useHomeController, { HomeProps } from "./Home.controller";
 import styles from "./Home.module.scss";
 import ArrowBackIosNewIcon from "@mui/icons-material/ArrowBackIosNew";
 import CardProperPersonsComponent from "../../components/CardProperPersons";
+import Banner from "@/public/images/banner-home.svg";
 
 export default function HomePage(props: HomeProps) {
   const {} = useHomeController(props);
@@ -105,11 +106,7 @@ export default function HomePage(props: HomeProps) {
           </Box>
 
           <Box className={styles.banner}>
-            <Image
-              src="/images/banner-home.svg"
-              layout="fill"
-              objectFit="contain"
-            />
+            <Image src={Banner} layout="fill" objectFit="contain" />
           </Box>
         </Container>
 
