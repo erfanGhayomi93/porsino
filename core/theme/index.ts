@@ -36,7 +36,7 @@ const lightPalette: PaletteOptions = {
   // divider: "rgba(0, 0, 0, 0.12)",
   divider: "#e0e0e0",
   text: {
-    primary: "#6F1EC3",
+    primary: "#000000",
     secondary: "#30DD8E",
   },
   action: {

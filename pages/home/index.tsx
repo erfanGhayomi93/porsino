@@ -1,14 +1,8 @@
-import NavigationBottomComponent from "@/core/components/layouts/NavigationBottom";
+import HomePage from "@/modules/home/presentation/pages/Home";
 import { NextPage } from "next";
 
 const Home: NextPage = () => {
-  return (
-    <div>
-      <NavigationBottomComponent value={0}>
-        <p>home page</p>
-      </NavigationBottomComponent>
-    </div>
-  );
+  return <HomePage />;
 };
 
 export default Home;

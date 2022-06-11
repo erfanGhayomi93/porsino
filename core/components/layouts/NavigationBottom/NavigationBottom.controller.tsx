@@ -1,4 +1,3 @@
-import * as React from "react";
 export type NavigationBottomProps = {
   value: number;
   children: any;

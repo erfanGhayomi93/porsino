@@ -6,9 +6,6 @@ import * as React from "react";
 import Box from "@mui/material/Box";
 import BottomNavigation from "@mui/material/BottomNavigation";
 import BottomNavigationAction from "@mui/material/BottomNavigationAction";
-import RestoreIcon from "@mui/icons-material/Restore";
-import FavoriteIcon from "@mui/icons-material/Favorite";
-import ArchiveIcon from "@mui/icons-material/Archive";
 import Paper from "@mui/material/Paper";
 import List from "@mui/material/List";
 import HomeIcon from "@mui/icons-material/Home";
@@ -16,12 +13,17 @@ import AccountBalanceWalletIcon from "@mui/icons-material/AccountBalanceWallet";
 import AddCircleOutlineIcon from "@mui/icons-material/AddCircleOutline";
 import NewspaperIcon from "@mui/icons-material/Newspaper";
 import PersonIcon from "@mui/icons-material/Person";
-import Link from "next/link";
+import { useRouter } from "next/router";
 
 export default function NavigationBottomComponent(
   props: NavigationBottomProps
 ) {
   const { value, children } = useNavigationBottomController(props);
+  const router = useRouter();
+
+  const handleRouteNavigationBottom = (path: string): void => {
+    router.push(path);
+  };
 
   return (
     <div className={styles.root}>
@@ -37,12 +39,9 @@ export default function NavigationBottomComponent(
                 root: styles.BottomNavigation,
                 selected: styles.BottomNavigationSelected,
               }}
-              label={
-                <Link href="/home" passHref>
-                  خانه
-                </Link>
-              }
+              label={"خانه"}
               icon={<HomeIcon />}
+              onClick={() => handleRouteNavigationBottom("/home")}
             />
 
             <BottomNavigationAction
@@ -50,12 +49,9 @@ export default function NavigationBottomComponent(
                 root: styles.BottomNavigation,
                 selected: styles.BottomNavigationSelected,
               }}
-              label={
-                <Link href="/credit" passHref>
-                  اعتبار
-                </Link>
-              }
+              label={"اعتبار"}
               icon={<AccountBalanceWalletIcon />}
+              onClick={() => handleRouteNavigationBottom("/credit")}
             />
             <BottomNavigationAction
               classes={{

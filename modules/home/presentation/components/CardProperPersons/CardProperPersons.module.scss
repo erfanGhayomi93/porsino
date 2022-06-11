@@ -1,0 +1,29 @@
+.root {
+  width: 211px;
+  height: 213px;
+  border: 1px solid var(--text-light-mute);
+  border-radius: 12px;
+  padding: 16px;
+  margin-left: 16px;
+  margin-bottom: 56px;
+  .surface {
+    width: 179px;
+    height: 101px;
+    background: #f7f7f7;
+    border-radius: 8px;
+    margin: auto;
+    padding: 16px;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    align-items: center;
+  }
+  .content {
+    margin: 16px 0;
+    .item {
+      display: flex;
+      padding: 4px;
+      justify-content: space-between;
+    }
+  }
+}
