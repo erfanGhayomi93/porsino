@@ -6,9 +6,15 @@ import styles from "./Home.module.scss";
 import ArrowBackIosNewIcon from "@mui/icons-material/ArrowBackIosNew";
 import CardProperPersonsComponent from "../../components/CardProperPersons";
 import Banner from "@/public/images/banner-home.svg";
+import { useRouter } from "next/router";
 
 export default function HomePage(props: HomeProps) {
   const {} = useHomeController(props);
+  const router = useRouter();
+
+  const handleRoute = (path: string): void => {
+    router.push(path);
+  };
 
   return (
     <>
@@ -27,7 +33,7 @@ export default function HomePage(props: HomeProps) {
                 <Typography variant="body1" component="span">
                   2,۰۰۰
                 </Typography>
-                <Typography variant="body1" component="span" className="">
+                <Typography variant="body1" component="span">
                   شیبا
                 </Typography>
               </p>
@@ -60,7 +66,10 @@ export default function HomePage(props: HomeProps) {
             </div>
 
             <div className={styles.content}>
-              <div className={styles.item}>
+              <div
+                className={styles.item}
+                onClick={() => handleRoute("/home/survay")}
+              >
                 <div>
                   <Image src="/images/survay-icon.svg" width={56} height={56} />
                   <Typography variant="body1" component="p">

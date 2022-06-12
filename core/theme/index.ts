@@ -19,9 +19,10 @@ const typography = {
 
 const lightPalette: PaletteOptions = {
   secondary: {
-    main: "#81DD22",
+    main: "#72C31E",
     light: "#67B11B",
     lighter: "#9AE44E",
+    contrastText : "#fff"
   },
   primary: { main: "#7E22DD", light: "#651BB1", lighter: "#984EE4" },
   success: { main: "#07C5AE", light: "#A0D6AEB2", lighter: "#A0D6AE1A" , contrastText : "#fff" },
