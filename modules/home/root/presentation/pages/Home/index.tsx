@@ -80,7 +80,10 @@ export default function HomePage(props: HomeProps) {
                   <ArrowBackIosNewIcon />
                 </div>
               </div>
-              <div className={styles.item}>
+              <div
+                className={styles.item}
+                onClick={() => handleRoute("/home/competition")}
+              >
                 <div>
                   <Image
                     src="/images/competition-icon.svg"
