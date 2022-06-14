@@ -1,0 +1,33 @@
+.root {
+  width: 156px;
+  background: var(--background-mute);
+  border-radius: 12px;
+  padding: 16px;
+  margin: 8px;
+  .title {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    border-bottom: 1px solid var(--text-light-mute);
+
+    h5 {
+      padding: 12px;
+    }
+  }
+  .content {
+    text-align: center;
+    .quntity {
+      color: var(--text-dark-mute);
+      padding: 12px 0 6px;
+    }
+    .body {
+      display: flex;
+      justify-content: center;
+      align-items: center;
+    }
+    .count {
+      color: var(--background-primary);
+      padding-left: 4px;
+    }
+  }
+}

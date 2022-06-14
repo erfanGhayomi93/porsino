@@ -20,6 +20,7 @@ type propTypes = {
     | "dashed"
     | "containedLight"
     | undefined;
+  onClick?: () => void;
 };
 
 export default function ButtonCustomComponent({
@@ -27,7 +28,22 @@ export default function ButtonCustomComponent({
   isIcon,
   variant,
   color,
+  onClick,
 }: propTypes) {
+  const checkStyles = () => {
+    let res = {};
+    if (color === "secondary") res = { borderRadius: 50 };
+    else if (color === "inherit")
+      res = {
+        backgroundColor: "white",
+        border: "1px solid #E6E6E6",
+        borderRadius: 8,
+      };
+    else res = { borderRadius: 8 };
+
+    return res;
+  };
+
   return (
     <Button
       variant={variant}
@@ -35,7 +51,8 @@ export default function ButtonCustomComponent({
       fullWidth
       size="large"
       endIcon={isIcon ? <ArrowBackIosNewIcon style={{ fontSize: 14 }} /> : null}
-      style={{ borderRadius: color === "secondary" ? 50 : 8 }}
+      style={checkStyles()}
+      onClick={onClick}
     >
       {label}
     </Button>

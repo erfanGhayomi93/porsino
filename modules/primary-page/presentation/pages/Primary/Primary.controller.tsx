@@ -6,9 +6,13 @@ export default function usePrimaryController(props: PrimaryProps) {
   const [initialize, setInitialize] = useState(false);
 
   useEffect(() => {
-    // setTimeout(() => {
-    setInitialize(true);
-    // }, 2000);
+    const timer = setTimeout(() => {
+      setInitialize(true);
+    }, 3000);
+
+    return () => {
+      clearTimeout(timer);
+    };
   }, []);
 
   return { ...props, initialize };

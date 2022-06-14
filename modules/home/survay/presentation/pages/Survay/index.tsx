@@ -1,4 +1,5 @@
 import ButtonCustomComponent from "@/core/components/common/ButtonCustom";
+import AppHeaderComponent from "@/core/components/layouts/AppHeader";
 import NavigationBottomComponent from "@/core/components/layouts/NavigationBottom";
 import { Box, Typography } from "@mui/material";
 import { Container } from "@mui/system";
@@ -14,6 +15,8 @@ export default function SurvayPage(props: SurvayProps) {
     <div className={styles.root}>
       <Container>
         <NavigationBottomComponent value={0}>
+          <AppHeaderComponent title="نظرسنجی‌ها" />
+
           <CardSurvayComponent />
           <CardSurvayComponent />
           <CardSurvayComponent />

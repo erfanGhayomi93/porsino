@@ -7,6 +7,7 @@ import ArrowBackIosNewIcon from "@mui/icons-material/ArrowBackIosNew";
 import CardProperPersonsComponent from "../../components/CardProperPersons";
 import Banner from "@/public/images/banner-home.svg";
 import { useRouter } from "next/router";
+import AppHeaderComponent from "@/core/components/layouts/AppHeader";
 
 export default function HomePage(props: HomeProps) {
   const {} = useHomeController(props);
@@ -19,6 +20,8 @@ export default function HomePage(props: HomeProps) {
   return (
     <>
       <NavigationBottomComponent value={0}>
+        <AppHeaderComponent title="پرسینو" />
+
         <Container maxWidth="lg" className={styles.root}>
           <Box className={styles.imgCard}>
             <div className={styles.item}>
@@ -99,7 +102,10 @@ export default function HomePage(props: HomeProps) {
                 </div>
               </div>
 
-              <div className={styles.item}>
+              <div
+                className={styles.item}
+                onClick={() => handleRoute("/home/lottery")}
+              >
                 <div>
                   <Image
                     src="/images/lottery-icon.svg"

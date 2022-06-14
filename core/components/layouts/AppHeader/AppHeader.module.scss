@@ -1,0 +1,18 @@
+.root {
+  margin-top: 55px;
+  .appBar {
+    border-bottom: 1px solid var(--text-light-mute);
+    padding: 14px 0;
+    box-shadow: none !important;
+    .toolbar {
+      min-height: 0;
+    }
+    .box {
+      display: flex;
+      align-items: center;
+      .arrow {
+        margin-left: 16px;
+      }
+    }
+  }
+}

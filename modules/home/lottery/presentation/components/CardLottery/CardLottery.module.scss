@@ -1,0 +1,18 @@
+.card {
+  width: 328px;
+  border-radius: 12px;
+  background-color: var(--background-mute);
+  padding: 16px;
+  margin: 0 auto 24px;
+  .content {
+    margin: 16px 0 8px;
+    .item {
+      display: flex;
+      justify-content: space-between;
+      padding: 8px 0;
+      span {
+        color: var(--text-dark-mute);
+      }
+    }
+  }
+}

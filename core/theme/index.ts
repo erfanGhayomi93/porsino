@@ -78,6 +78,12 @@ function makeTheme(dark: boolean, palette: PaletteOptions): ThemeOptions {
     palette,
     typography,
     components: {
+            // MuiButton: {
+            //           variants: [
+                        
+
+            // }
+
       // MuiListItemButton: {
       //   styleOverrides: {
       //     root: {
