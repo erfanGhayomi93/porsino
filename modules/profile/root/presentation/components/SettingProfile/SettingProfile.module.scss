@@ -1,0 +1,27 @@
+.title {
+  padding: 16px;
+  border-bottom: 1px solid var(--text-light-mute);
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+
+  .iconButton {
+    background-color: var(--background-mute);
+  }
+}
+.content {
+  padding: 16px;
+  .des {
+    padding-bottom: 16px;
+  }
+  .item {
+    padding: 16px 0;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+  }
+
+  .button {
+    padding: 16px 0 8px;
+  }
+}

@@ -1,16 +1,30 @@
-import { ArrowForwardIos } from "@mui/icons-material";
 import { AppBar, Box, Container, Toolbar, Typography } from "@mui/material";
 import useAppHeaderController, { AppHeaderProps } from "./AppHeader.controller";
 import styles from "./AppHeader.module.scss";
+import ArrowForwardIcon from "@mui/icons-material/ArrowForward";
+import { useRouter } from "next/router";
 
 export default function AppHeaderComponent(props: AppHeaderProps) {
   const { title } = useAppHeaderController(props);
+  const router = useRouter();
 
   const btnButton = () => {
     return (
-      <div className={styles.arrow} onClick={() => history.back()}>
-        <ArrowForwardIos />
-      </div>
+      // <div >
+      <ArrowForwardIcon
+        className={styles.arrow}
+        onClick={() => {
+          console.log("history", history.back());
+          const backHistory: any = history.back();
+          if (backHistory) {
+            history.back();
+          }
+          //  else {
+          //   router.push("/home");
+          // }
+        }}
+      />
+      // </div>
     );
   };
 
@@ -21,7 +35,7 @@ export default function AppHeaderComponent(props: AppHeaderProps) {
           <Toolbar className={styles.toolbar} disableGutters>
             <Box className={styles.box}>
               {btnButton()}
-              <Typography component="h1" className="strong">
+              <Typography variant="h6" component="h1" className="strong">
                 {title}
               </Typography>
             </Box>

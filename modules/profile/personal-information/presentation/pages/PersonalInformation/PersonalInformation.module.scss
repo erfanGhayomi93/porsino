@@ -1,0 +1,30 @@
+.root {
+  padding: 16px 0;
+  .avatar {
+    padding: 8px;
+    margin: auto;
+    text-align: center;
+  }
+  .title {
+    margin-top: 24px;
+    margin-bottom: 8px;
+    text-align: center;
+  }
+  .content {
+    background-color: var(--background-mute);
+    border-radius: 12px;
+    padding: 8px 16px;
+    .item {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      padding: 24px 0;
+      &:nth-child(1) {
+        border-bottom: 1px solid var(--text-light-mute);
+      }
+    }
+    .text {
+      margin-right: 8px !important;
+    }
+  }
+}

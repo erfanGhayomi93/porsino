@@ -1,0 +1,28 @@
+.root {
+  padding: 16px;
+  border: 1px solid var(--text-light-mute);
+  border-radius: 12px;
+  margin-bottom: 24px;
+  .title {
+    padding: 0 8px 16px;
+    border-bottom: 1px solid var(--text-light-mute);
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+  }
+  .content {
+    padding: 16px 0 24px;
+    .item {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      padding: 0 26px;
+    }
+  }
+  .secondaryLight {
+    color: var(--secondary-light);
+  }
+  .errorLight {
+    color: var(--error-light);
+  }
+}

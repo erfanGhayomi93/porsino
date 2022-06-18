@@ -1,14 +1,8 @@
-import NavigationBottomComponent from "@/core/components/layouts/NavigationBottom";
-import React from "react";
+import CreditPage from "@/modules/credit/presentation/pages/Credit";
+import { NextPage } from "next";
 
-export default function Credit() {
-  return (
-    <div>
-      <div>
-        <NavigationBottomComponent value={1}>
-          <p>credit page</p>
-        </NavigationBottomComponent>
-      </div>
-    </div>
-  );
-}
+const Home: NextPage = () => {
+  return <CreditPage />;
+};
+
+export default Home;

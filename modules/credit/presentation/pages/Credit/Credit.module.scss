@@ -1,0 +1,26 @@
+.root {
+  padding-top: 16px;
+  .detailCredit {
+    background: url("/images/detail-credit.svg") center center no-repeat;
+    background-size: cover;
+    width: 100%;
+    // height: 216px;
+    margin: auto;
+    border-radius: 12px;
+    padding: 4px 16px;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    .item {
+      display: flex;
+      justify-content: space-between;
+      margin: 12px 0;
+      .subject {
+        color: var(--text-dark-mute);
+      }
+      .count {
+        margin-left: 4px;
+      }
+    }
+  }
+}

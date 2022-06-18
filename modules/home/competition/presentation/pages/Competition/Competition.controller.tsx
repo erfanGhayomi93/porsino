@@ -2,5 +2,5 @@ export type CompetitionProps = {};
 
 export default function useCompetitionController(props: CompetitionProps) {
   const {} = props;
-  return { ...props, isData: false };
+  return { ...props, isData: true };
 }

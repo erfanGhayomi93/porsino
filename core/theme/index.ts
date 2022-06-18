@@ -26,7 +26,7 @@ const lightPalette: PaletteOptions = {
   },
   primary: { main: "#7E22DD", light: "#651BB1", lighter: "#984EE4" },
   success: { main: "#07C5AE", light: "#A0D6AEB2", lighter: "#A0D6AE1A" , contrastText : "#fff" },
-  error: { main: "#EB4137", light: "#F5A09BB2", lighter: "#F5A09B1A" },
+  error: { main: "#EB4137", light: "#AF231D", lighter: "#F5A09B1A" },
   warning: { main: "#FBBD06", light: "#FDDE82B2" },
   info: { main: "#D0E1FB", light: "#60abd547", lighter: "#4A7F9C1A" , contrastText : "#5093E2" },
   background: {
@@ -34,11 +34,11 @@ const lightPalette: PaletteOptions = {
     secondary: "#fafafa",
     paper: "#fff",
   },
-  // divider: "rgba(0, 0, 0, 0.12)",
-  divider: "#e0e0e0",
+  // divider: "#e0e0e0",
+  divider: "#666666",
   text: {
     primary: "#000000",
-    secondary: "#30DD8E",
+    secondary: "#999999",
   },
   action: {
     disabledBackground: "#6C759624",
@@ -79,10 +79,10 @@ function makeTheme(dark: boolean, palette: PaletteOptions): ThemeOptions {
     typography,
     components: {
             // MuiButton: {
-            //           variants: [
-                        
-
-            // }
+            //             styleOverrides : {
+                          
+            //             }
+            // },
 
       // MuiListItemButton: {
       //   styleOverrides: {
@@ -243,71 +243,80 @@ function makeTheme(dark: boolean, palette: PaletteOptions): ThemeOptions {
       //     // },
       //   },
       // },
-      // MuiFormControl: {
-      //   styleOverrides: {
-      //     root: {
-      //       "& legend": {
-      //         fontSize: 12,
-      //       },
-      //     },
-      //   },
-      // },
-      // MuiTextField: {
-      //   variants: [
-      //     {
-      //       props: { round: 1 },
-      //       style: {
-      //         "& .MuiOutlinedInput-root": {
-      //           borderRadius: 24,
-      //         },
-      //       },
-      //     },
-      //     {
-      //       props: { margin: "normal" },
-      //       style: {
-      //         marginBottom: 40,
-      //         ...desktopDownMedia({
-      //           marginBottom: 16,
-      //         }),
-      //       },
-      //     },
-      //   ],
-      // },
-      // MuiChip: {
-      //   styleOverrides: {
-      //     outlined: {
-      //       backgroundColor: "white",
-      //       borderColor : "#D2D2D2", 
-      //       color : "black"
-      //     },
-      //     // root: { height: 20 },
-      //     label: {
-      //       display: "block",
-      //       whiteSpace: "nowrap",
-      //       overflow: "hidden",
-      //       textOverflow: "ellipsis",
-      //     },
-      //     root: {
-      //       "&.MuiChip-colorDefault": {
-      //         backgroundColor: palette.action?.disabledBackground,
-      //         // color: (palette.secondary as any).main,
-      //       },
-      //       // "&:hover":{
-      //       //   background : "unset"
-      //       // }
-      //     },
-      //   },
-      //   variants: [
-      //     {
-      //       props: { color: "primary" },
-      //       style: {
-      //         "&:hover": {
-      //           backgroundColor: (palette.primary as any).main,
-      //         },
-      //       },
-      //     },
-      //   ],
-      // },
+      MuiFormControl: {
+        styleOverrides: {
+          
+        },
+      
+      },
+      MuiTextField: {
+        styleOverrides : {
+          
+        },
+        variants: [
+          {
+            props: { round: 1 },
+            style: {
+              "& .MuiOutlinedInput-root": {
+                borderRadius: 24,
+              },
+            },
+          },
+          {
+            props: { margin: "normal" },
+            style: {
+              marginBottom: 40,
+              backgroundColor: "#E5D3F8",
+              borderColor : "#CBA7F1", 
+              color : "#651BB1",
+              ...desktopDownMedia({
+                marginBottom: 16,
+              }),
+            },
+          },
+        ],
+      },
+      MuiChip: {
+        styleOverrides: {
+          outlined: {
+            backgroundColor: "white",
+            borderColor : "#CCCCCC", 
+            color : "#000000",
+          },
+          filled: {
+            backgroundColor: "#E5D3F8",
+            borderColor : "#CBA7F1", 
+            color : "#651BB1"},
+          // root: { height: 20 },
+          label: {
+            display: "block",
+            whiteSpace: "nowrap",
+            overflow: "hidden",
+            textOverflow: "ellipsis",
+            fontWeight : 600 ,
+            fontSize : 14,
+                   },
+          root: {
+            "&.MuiChip-colorDefault": {
+              // backgroundColor: palette.action?.disabledBackground,
+              // color: (palette.secondary as any).main,
+            },
+            // "&:hover":{
+            //   background : "unset"
+            // }
+          },
+        },
+        // variants: [
+        //   {
+        //     props: { color: "primary" },
+        //     style: {
+        //       "&:hover": {
+        //         backgroundColor: (palette.primary as any).main,
+        //       },
+        //     },
+        //   },
+        // ],
+      },
       // MuiTabs: {
       //   styleOverrides: {
       //     root: {

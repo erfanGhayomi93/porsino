@@ -31,15 +31,16 @@ export default function ButtonCustomComponent({
   onClick,
 }: propTypes) {
   const checkStyles = () => {
-    let res = {};
-    if (color === "secondary") res = { borderRadius: 50 };
+    let res: any = { padding: "11px 21px" };
+    if (color === "secondary") res = { ...res, borderRadius: 50 };
     else if (color === "inherit")
       res = {
+        ...res,
         backgroundColor: "white",
         border: "1px solid #E6E6E6",
-        borderRadius: 8,
+        borderRadius: 12,
       };
-    else res = { borderRadius: 8 };
+    else res = { ...res, borderRadius: 12 };
 
     return res;
   };
@@ -53,6 +54,7 @@ export default function ButtonCustomComponent({
       endIcon={isIcon ? <ArrowBackIosNewIcon style={{ fontSize: 14 }} /> : null}
       style={checkStyles()}
       onClick={onClick}
+      className="strong"
     >
       {label}
     </Button>

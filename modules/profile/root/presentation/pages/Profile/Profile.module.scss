@@ -1,0 +1,33 @@
+.root {
+  margin-bottom: 48px;
+  .box {
+    .item {
+      padding: 24px 0;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      border-bottom: 4px solid var(--background-mute);
+
+      .listItem {
+        &:last-child .item {
+          border-bottom: none;
+        }
+      }
+      .itemText {
+        span {
+          font-weight: 600;
+        }
+      }
+      .itemIcon {
+        justify-content: flex-end;
+        padding: 0 8px;
+      }
+      > p {
+        font-weight: 600;
+      }
+      .arrow {
+        fill: #000000;
+      }
+    }
+  }
+}
