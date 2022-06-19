@@ -1,0 +1,32 @@
+.root {
+  padding: 8px 0 16px;
+  border-bottom: 4px solid var(--background-mute);
+  margin-bottom: 16px;
+  &:last-child {
+    border-bottom: none;
+  }
+  .title {
+    display: flex;
+    margin-bottom: 24px;
+    align-items: center;
+    .image {
+      width: 80px;
+      height: 80px;
+      border-radius: 12px;
+      margin-left: 16px;
+      background-color: var(--background-mute);
+    }
+    .box {
+      > div:nth-child(1) {
+        margin-bottom: 16px;
+      }
+      span {
+        margin-right: 4px;
+      }
+    }
+  }
+
+  .button {
+    padding-bottom: 8px;
+  }
+}

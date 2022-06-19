@@ -79,7 +79,11 @@ export default function ProfilePage(props: any) {
             </ListItem>
 
             <ListItem className={styles.listItem} disablePadding>
-              <ListItemButton className={styles.item}>
+              <ListItemButton
+                className={styles.item}
+                LinkComponent={Link}
+                href="/profile/mySurvay"
+              >
                 <ListItemText
                   className={styles.itemText}
                   primary="نظرسنجی‌های من"
@@ -91,7 +95,11 @@ export default function ProfilePage(props: any) {
             </ListItem>
 
             <ListItem className={styles.listItem} disablePadding>
-              <ListItemButton className={styles.item}>
+              <ListItemButton
+                className={styles.item}
+                LinkComponent={Link}
+                href="/profile/myFavorites"
+              >
                 <ListItemText
                   className={styles.itemText}
                   primary="علاقه‌مند‌ی‌ها"

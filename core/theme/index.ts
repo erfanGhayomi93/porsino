@@ -28,7 +28,7 @@ const lightPalette: PaletteOptions = {
   success: { main: "#07C5AE", light: "#A0D6AEB2", lighter: "#A0D6AE1A" , contrastText : "#fff" },
   error: { main: "#EB4137", light: "#AF231D", lighter: "#F5A09B1A" },
   warning: { main: "#FBBD06", light: "#FDDE82B2" },
-  info: { main: "#D0E1FB", light: "#60abd547", lighter: "#4A7F9C1A" , contrastText : "#5093E2" },
+  info: { main: "#D0E1FB", light: "#2478DB", lighter: "#4A7F9C1A" , contrastText : "#5093E2" },
   background: {
     default: "#fff",
     secondary: "#fafafa",
@@ -55,7 +55,7 @@ const darkPalette: PaletteOptions = {
   success: { main: "#30BE81", light: "#34A8534D", lighter: "#34A8531A" },
   error: { main: "#EB4137", light: "#EB41374D", lighter: "#EB41371A" },
   warning: { main: "#FBBD06", light: "#FBBD064D" },
-  info: { main: "#4A7F9C", light: "#60abd547" },
+  info: { main: "#4A7F9C", light: "#2478DB" },
   mode: "dark",
   text: {
     primary: "rgba(255, 255, 255, 0.98)",

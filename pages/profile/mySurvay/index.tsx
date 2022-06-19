@@ -1,8 +1,8 @@
-import MyCompetitionsPage from "@/modules/profile/my-competitions/presentation/pages/MyCompetitions";
+import MySurvayPage from "@/modules/profile/my-survay/presentation/pages/MySurvay";
 import { NextPage } from "next";
 
-const MyCompetitions: NextPage = () => {
-  return <MyCompetitionsPage />;
+const MySurvay: NextPage = () => {
+  return <MySurvayPage />;
 };
 
-export default MyCompetitions;
+export default MySurvay;

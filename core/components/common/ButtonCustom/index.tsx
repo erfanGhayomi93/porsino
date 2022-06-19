@@ -39,6 +39,7 @@ export default function ButtonCustomComponent({
         backgroundColor: "white",
         border: "1px solid #E6E6E6",
         borderRadius: 12,
+        padding: "10px 21px",
       };
     else res = { ...res, borderRadius: 12 };
 
