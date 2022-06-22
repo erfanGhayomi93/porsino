@@ -21,6 +21,7 @@ type propTypes = {
     | "containedLight"
     | undefined;
   onClick?: () => void;
+  padding?: string;
 };
 
 export default function ButtonCustomComponent({
@@ -29,6 +30,7 @@ export default function ButtonCustomComponent({
   variant,
   color,
   onClick,
+  padding,
 }: propTypes) {
   const checkStyles = () => {
     let res: any = { padding: "11px 21px" };
@@ -43,6 +45,7 @@ export default function ButtonCustomComponent({
       };
     else res = { ...res, borderRadius: 12 };
 
+    if (padding) res = { ...res, padding };
     return res;
   };
 

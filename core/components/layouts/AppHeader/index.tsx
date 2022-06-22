@@ -10,21 +10,16 @@ export default function AppHeaderComponent(props: AppHeaderProps) {
 
   const btnButton = () => {
     return (
-      // <div >
       <ArrowForwardIcon
         className={styles.arrow}
         onClick={() => {
-          console.log("history", history.back());
-          const backHistory: any = history.back();
-          if (backHistory) {
-            history.back();
+          if (window?.history?.state?.idx) {
+            router.back();
+          } else {
+            router.push("/home");
           }
-          //  else {
-          //   router.push("/home");
-          // }
         }}
       />
-      // </div>
     );
   };
 

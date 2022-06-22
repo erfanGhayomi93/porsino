@@ -1,0 +1,16 @@
+.root {
+  .buttons {
+    display: flex;
+    padding: 16px;
+    margin: 16px 0 8px;
+    flex-grow: 1;
+    .button {
+      width: 100%;
+    }
+    .prevButton {
+      margin-left: 16px;
+    }
+    .nextButton {
+    }
+  }
+}

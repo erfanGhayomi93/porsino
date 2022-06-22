@@ -3,6 +3,7 @@ import { Box, Typography } from "@mui/material";
 import { Container } from "@mui/system";
 import clsx from "clsx";
 import Image from "next/image";
+import { useRouter } from "next/router";
 import useCardSurvayController, {
   CardSurvayProps,
 } from "./CardSurvay.controller";
@@ -10,6 +11,11 @@ import styles from "./CardSurvay.module.scss";
 
 export default function CardSurvayComponent(props: CardSurvayProps) {
   const {} = useCardSurvayController(props);
+  const router = useRouter();
+
+  const handleClick = () => {
+    router.push("/home/survay/detailsSurvay/hash");
+  };
 
   return (
     <div className={styles.root}>
@@ -47,6 +53,7 @@ export default function CardSurvayComponent(props: CardSurvayProps) {
           label="بپرس اینو"
           isIcon
           variant="contained"
+          onClick={() => handleClick()}
         />
       </Box>
     </div>

@@ -1,0 +1,61 @@
+.root {
+  padding: 16px 0;
+  .img {
+    padding-top: 15vh;
+    text-align: center;
+  }
+
+  .text {
+    padding-top: 24px;
+    font-weight: 600;
+    text-align: center;
+    color: var(--background-primary);
+  }
+
+  .content {
+    margin-top: 40px;
+    background-color: var(--background-light-primary);
+    border-radius: 12px;
+    padding: 24px;
+    text-align: center;
+    span {
+      padding-top: 12px;
+      display: inline-block;
+    }
+  }
+  .buttons {
+    padding: 16px 0 24px;
+    position: fixed;
+    bottom: 0;
+    right: 0;
+    width: 100%;
+    display: flex;
+    align-items: center;
+    .returnToHome {
+      width: 55%;
+      margin: 0 12px 0 16px;
+    }
+    .save {
+      padding: 18px 22px;
+      border: 1px solid var(--text-light-mute);
+      border-radius: 12px;
+      margin-right: 12px;
+      svg {
+        width: 16px;
+        height: 20.6px;
+        vertical-align: middle;
+      }
+    }
+    .share {
+      padding: 18px 22px;
+      border: 1px solid var(--text-light-mute);
+      border-radius: 12px;
+      margin-right: 16px;
+      svg {
+        width: 16px;
+        height: 20.6px;
+        vertical-align: middle;
+      }
+    }
+  }
+}

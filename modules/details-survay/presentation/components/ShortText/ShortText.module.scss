@@ -1,0 +1,27 @@
+.root {
+  .box {
+    min-height: calc(100vh - 243px);
+  }
+  .title {
+    span {
+      margin-top: 8px;
+      color: var(--text-main-mute);
+    }
+  }
+  .content {
+    padding-top: 16px;
+    .textArea {
+      margin-top: 8px;
+      width: 100% !important;
+      height: 155px !important;
+      border-radius: 12px;
+      background-color: var(--background-mute);
+      border: none !important;
+      padding: 16px;
+      resize: none;
+      &:focus-visible {
+        border: none !important;
+      }
+    }
+  }
+}

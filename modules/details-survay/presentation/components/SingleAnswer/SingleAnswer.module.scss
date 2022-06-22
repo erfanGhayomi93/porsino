@@ -1,0 +1,23 @@
+.root {
+  .box {
+    min-height: calc(100vh - 243px);
+  }
+  .title {
+    span {
+      margin-top: 8px;
+      color: var(--text-main-mute);
+    }
+  }
+  .content {
+    padding-top: 16px;
+    .item {
+      margin: 8px 0;
+      padding: 20px 18px;
+      background-color: var(--background-mute);
+      border-radius: 12px;
+    }
+    .selected {
+      background-color: var(--background-light-primary);
+    }
+  }
+}

@@ -1,0 +1,17 @@
+.root {
+  padding: 16px 0;
+  .box {
+    display: flex;
+    justify-content: space-between;
+    .numberQuestion {
+      padding: 4px 8px;
+      border: 1px solid var(--background-light-primary);
+      border-radius: 12px;
+      margin-top: 12px;
+    }
+    .allQuestion {
+      margin-top: 4px;
+      color: #333333;
+    }
+  }
+}

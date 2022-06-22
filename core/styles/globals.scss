@@ -15,9 +15,9 @@ html {
     font-size: 4.375vw;
   }
 }
-body {
-  min-height: 100vh;
-}
+// body {
+//   min-height: 100vh;
+// }
 .overflow-hidden {
   overflow: hidden !important;
 }
@@ -111,6 +111,9 @@ img {
 }
 .strong {
   font-weight: 700;
+}
+.weight-600 {
+  font-weight: 600;
 }
 .square-button {
   &.MuiButton-sizeMedium {
