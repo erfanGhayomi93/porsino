@@ -5,8 +5,6 @@ import styles from "./Step1.module.scss";
 import KeyboardArrowDownIcon from "@mui/icons-material/KeyboardArrowDown";
 import DrawerMainCategoryComponent from "../DrawerMainCategory";
 import DrawerSubCategoryComponent from "../DrawerSubCategory";
-import PhotoCameraBackIcon from "@mui/icons-material/PhotoCameraBack";
-import ButtonCustomComponent from "@/core/components/common/ButtonCustom";
 
 export default function Step1Component(props: Step1Props) {
   const {
@@ -15,7 +13,6 @@ export default function Step1Component(props: Step1Props) {
     isShowCategorySub,
     setisShowCategorySub,
     attachRaf,
-    setStep,
   } = useStep1Controller(props);
 
   return (
@@ -81,15 +78,6 @@ export default function Step1Component(props: Step1Props) {
           <input type="file" ref={attachRaf} style={{ display: "none" }} />
         </Box>
       </Box>
-
-      {/* <div className={styles.button}>
-        <ButtonCustomComponent
-          label="ثبت"
-          color="primary"
-          variant="contained"
-          onClick={() => setStep(2)}
-        />
-      </div> */}
     </div>
   );
 }

@@ -19,7 +19,7 @@ export default function NewSurvayPage(props: NewSurvayProps) {
           <div className={styles.content}>
             <StepperComponent {...{ step, setStep }} />
 
-            {step === 1 && <Step1Component setStep={setStep} />}
+            {step === 1 && <Step1Component />}
             {step === 2 && <Step2Component />}
           </div>
 
