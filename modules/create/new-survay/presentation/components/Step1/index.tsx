@@ -67,6 +67,7 @@ export default function Step1Component(props: Step1Props) {
           <InputTextComponent
             placeholder="تصویر نظرسنجی"
             fullWidth
+            readOnly
             endAdornment={
               <svg className={styles.icon}>
                 <use xlinkHref="/sprit.svg#image-line" />
