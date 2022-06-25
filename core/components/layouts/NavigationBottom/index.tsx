@@ -60,6 +60,7 @@ export default function NavigationBottomComponent(
               }}
               label="ساختن"
               icon={<AddCircleOutlineIcon />}
+              onClick={() => handleRouteNavigationBottom("/create")}
             />
             <BottomNavigationAction
               classes={{

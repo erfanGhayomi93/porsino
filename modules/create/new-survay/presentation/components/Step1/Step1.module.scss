@@ -1,0 +1,21 @@
+.root {
+  .title {
+    padding: 16px 0;
+    font-weight: 600;
+  }
+  .content {
+    padding: 16px 0 0;
+  }
+  .item {
+    padding: 16px 0;
+    width: 100%;
+  }
+  .button {
+    padding: 16px 0;
+  }
+  .icon {
+    width: 24px;
+    height: 24px;
+    fill: var(--text-dark-mute);
+  }
+}

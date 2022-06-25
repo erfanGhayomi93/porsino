@@ -1,0 +1,13 @@
+.inputText {
+  & ::placeholder {
+    color: #333333;
+    opacity: 1;
+  }
+  input {
+    padding: 18px 14px;
+  }
+}
+.rootInput {
+  border-radius: 12px;
+  border-color: #b3b3b3;
+}
