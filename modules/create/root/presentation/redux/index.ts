@@ -1,11 +1,11 @@
 import { createSlice } from '@reduxjs/toolkit'
   
-export const createSlice = createSlice({
+export const createSurvaySlice = createSlice({
     name: 'create',
     initialState: {},
     reducers: {},
 })
 
-export const {} = createSlice.actions
+export const {} = createSurvaySlice.actions
 
-export default createSlice.reducer;
+export default createSurvaySlice.reducer;
