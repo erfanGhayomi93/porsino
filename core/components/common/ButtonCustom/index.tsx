@@ -1,5 +1,6 @@
 import { Button } from "@mui/material";
 import ArrowBackIosNewIcon from "@mui/icons-material/ArrowBackIosNew";
+import clsx from "clsx";
 
 type propTypes = {
   label: string;
@@ -22,6 +23,7 @@ type propTypes = {
     | undefined;
   onClick?: () => void;
   padding?: string;
+  className?: any;
 };
 
 export default function ButtonCustomComponent({
@@ -31,6 +33,7 @@ export default function ButtonCustomComponent({
   color,
   onClick,
   padding,
+  className,
 }: propTypes) {
   const checkStyles = () => {
     let res: any = { padding: "11px 21px" };
@@ -58,7 +61,7 @@ export default function ButtonCustomComponent({
       endIcon={isIcon ? <ArrowBackIosNewIcon style={{ fontSize: 14 }} /> : null}
       style={checkStyles()}
       onClick={onClick}
-      className="strong"
+      className={clsx("strong", className)}
     >
       {label}
     </Button>

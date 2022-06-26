@@ -9,7 +9,8 @@ import useNewSurvayController, { NewSurvayProps } from "./NewSurvay.controller";
 import styles from "./NewSurvay.module.scss";
 
 export default function NewSurvayPage(props: NewSurvayProps) {
-  const { step, setStep } = useNewSurvayController(props);
+  const { step, setStep, isNotice, setisNotice } =
+    useNewSurvayController(props);
 
   return (
     <div>
@@ -20,7 +21,7 @@ export default function NewSurvayPage(props: NewSurvayProps) {
             <StepperComponent {...{ step, setStep }} />
 
             {step === 1 && <Step1Component />}
-            {step === 2 && <Step2Component />}
+            {step === 2 && <Step2Component {...{ isNotice, setisNotice }} />}
           </div>
 
           <Box className={styles.buttons}>
