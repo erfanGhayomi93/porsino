@@ -1,0 +1,51 @@
+.root {
+  .title {
+    padding: 16px 0;
+    font-weight: 600;
+  }
+  .box {
+    .item {
+      border-bottom: 4px solid var(--background-mute);
+      margin-bottom: 24px;
+
+      .question {
+        padding: 16px 0;
+        margin-bottom: 8px;
+      }
+      .option {
+        padding: 16px 0;
+      }
+      .des {
+        padding: 24px 0 16px;
+        span {
+          padding-right: 4px;
+          color: var(--text-main-mute);
+        }
+      }
+      .icon {
+        width: 15px;
+        height: 15px;
+        vertical-align: middle;
+      }
+      .buttons {
+        padding: 16px 0;
+        margin-bottom: 8px;
+        display: flex;
+        justify-content: space-between;
+        .itemBtn {
+          border: 1px solid var(--text-light-mute);
+          border-radius: 12px;
+          padding: 15px;
+          svg {
+            width: 20px;
+            height: 20px;
+            vertical-align: middle;
+          }
+        }
+      }
+    }
+    .ml-12 {
+      margin-left: 12px;
+    }
+  }
+}

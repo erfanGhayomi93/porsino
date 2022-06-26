@@ -3,16 +3,16 @@ import useDrawerNewQuestionController, {
 } from "./DrawerNewQuestion.controller";
 import styles from "./DrawerNewQuestion.module.scss";
 import CloseIcon from "@mui/icons-material/Close";
-import ButtonCustomComponent from "@/core/components/common/ButtonCustom";
 import { Box, Chip, Container, IconButton, Typography } from "@mui/material";
 import DrawerCustomComponent from "@/core/components/common/DrawerCustom";
 import AddIcon from "@mui/icons-material/Add";
 import React from "react";
+import { statusPageType } from "../Step2/Step2.controller";
 
 export default function DrawerNewQuestionComponent(
   props: DrawerNewQuestionProps
 ) {
-  const { isShowNewQuestion, setisShowNewQuestion } =
+  const { isShowNewQuestion, setisShowNewQuestion, handleClickTypeQuestion } =
     useDrawerNewQuestionController(props);
 
   return (
@@ -42,7 +42,7 @@ export default function DrawerNewQuestionComponent(
                   {item.title}
                 </Typography>
                 <Box className={styles.chips}>
-                  {item.chips.map((chipItem: any, index: number) => (
+                  {item.chips.map((chipItem: string, index: number) => (
                     <Chip
                       label={chipItem}
                       key={index}
@@ -51,7 +51,7 @@ export default function DrawerNewQuestionComponent(
                       clickable={false}
                       color="primary"
                       icon={<AddIcon />}
-                      // onClick={() => setActiveCategory(item.enTitle)}
+                      onClick={() => handleClickTypeQuestion(chipItem)}
                     />
                   ))}
                 </Box>
@@ -65,7 +65,10 @@ export default function DrawerNewQuestionComponent(
 }
 
 const data: any = [
-  { title: "انتخابی", chips: ["تک انتخابی", "چند انتخابی", "ارزیابی"] },
+  {
+    title: "انتخابی",
+    chips: [statusPageType.singleAnswer, statusPageType.multiAnswer, "ارزیابی"],
+  },
   { title: "تشریحی", chips: ["تشریحی کوتاه", "تشریحی بلند", "تاریخ"] },
   { title: "الگو", chips: ["ایموجی"] },
 ];

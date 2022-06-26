@@ -12,7 +12,7 @@ import StepConnector, {
 import { StepIconProps } from "@mui/material/StepIcon";
 
 export default function StepperComponent(props: StepperProps) {
-  const { step, setStep } = useStepperController(props);
+  const { step } = useStepperController(props);
 
   const ColorlibConnector = styled(StepConnector)(({ theme }) => ({
     [`&.${stepConnectorClasses.alternativeLabel}`]: {

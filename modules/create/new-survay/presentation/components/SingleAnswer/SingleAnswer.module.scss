@@ -1,0 +1,27 @@
+.root {
+  .item {
+    padding: 16px 0 32px;
+    width: 100%;
+  }
+  .icon {
+    width: 24px;
+    height: 24px;
+    fill: var(--text-dark-mute);
+  }
+  .chip {
+    margin-bottom: 32px;
+  }
+  .helperText {
+    color: #333333;
+    padding: 4px 16px 0 0;
+  }
+  .isRequired {
+    display: flex;
+    justify-content: space-between;
+    padding: 16px 0;
+    margin-bottom: 24px;
+  }
+  .button {
+    padding: 16px 0;
+  }
+}

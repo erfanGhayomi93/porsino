@@ -4,19 +4,6 @@
     font-weight: 600;
   }
   .content {
-    .box {
-      margin: 16px 0;
-      height: 124px;
-      border: 1px dashed #cccccc;
-      border-radius: 12px;
-      display: flex;
-      flex-direction: column;
-      justify-content: center;
-      align-items: center;
-    }
-    span {
-      color: var(--text-main-mute);
-    }
   }
   .button {
     padding: 16px 0;

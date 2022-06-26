@@ -9,8 +9,14 @@ import useNewSurvayController, { NewSurvayProps } from "./NewSurvay.controller";
 import styles from "./NewSurvay.module.scss";
 
 export default function NewSurvayPage(props: NewSurvayProps) {
-  const { step, setStep, isNotice, setisNotice } =
-    useNewSurvayController(props);
+  const {
+    step,
+    setStep,
+    isNotice,
+    setisNotice,
+    isShowCommon,
+    setisShowCommon,
+  } = useNewSurvayController(props);
 
   return (
     <div>
@@ -18,41 +24,45 @@ export default function NewSurvayPage(props: NewSurvayProps) {
       <Container maxWidth="lg">
         <div className={styles.root}>
           <div className={styles.content}>
-            <StepperComponent {...{ step, setStep }} />
+            {isShowCommon && <StepperComponent {...{ step }} />}
 
             {step === 1 && <Step1Component />}
-            {step === 2 && <Step2Component {...{ isNotice, setisNotice }} />}
+            {step === 2 && (
+              <Step2Component {...{ isNotice, setisNotice, setisShowCommon }} />
+            )}
           </div>
 
-          <Box className={styles.buttons}>
-            {step !== 1 && (
-              <div className={clsx(styles.prevButton, styles.button)}>
+          {isShowCommon && (
+            <Box className={styles.buttons}>
+              {step !== 1 && (
+                <div className={clsx(styles.prevButton, styles.button)}>
+                  <ButtonCustomComponent
+                    label="قبلی"
+                    color="inherit"
+                    variant="outlined"
+                    onClick={() => {
+                      setStep((prev) => prev - 1);
+                    }}
+                  />
+                </div>
+              )}
+
+              <div className={clsx(styles.nextButton, styles.button)}>
                 <ButtonCustomComponent
-                  label="قبلی"
-                  color="inherit"
-                  variant="outlined"
+                  label="بعدی"
+                  color="primary"
+                  variant="contained"
                   onClick={() => {
-                    setStep((prev) => prev - 1);
+                    // if (step + 1 > formData.length) {
+                    //   setstatusPage(statusPageType.finish);
+                    // } else {
+                    setStep((prev) => prev + 1);
+                    // }
                   }}
                 />
               </div>
-            )}
-
-            <div className={clsx(styles.nextButton, styles.button)}>
-              <ButtonCustomComponent
-                label="بعدی"
-                color="primary"
-                variant="contained"
-                onClick={() => {
-                  // if (step + 1 > formData.length) {
-                  //   setstatusPage(statusPageType.finish);
-                  // } else {
-                  setStep((prev) => prev + 1);
-                  // }
-                }}
-              />
-            </div>
-          </Box>
+            </Box>
+          )}
         </div>
       </Container>
     </div>
