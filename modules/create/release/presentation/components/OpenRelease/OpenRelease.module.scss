@@ -1,0 +1,22 @@
+.root {
+  padding-bottom: 55px;
+  .content {
+    padding-top: 16px;
+    .item {
+      padding: 8px 0 32px;
+      .formHelperText {
+        color: #333333;
+        padding-right: 16px;
+      }
+    }
+  }
+
+  .button {
+    position: fixed;
+    bottom: 0;
+    right: 0;
+    width: 100%;
+    padding: 16px 16px 24px;
+    background-color: white;
+  }
+}

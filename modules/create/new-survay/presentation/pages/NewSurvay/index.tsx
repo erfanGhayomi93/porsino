@@ -1,9 +1,12 @@
 import ButtonCustomComponent from "@/core/components/common/ButtonCustom";
+import DrawerCustomComponent from "@/core/components/common/DrawerCustom";
 import AppHeaderComponent from "@/core/components/layouts/AppHeader";
 import { Box, Container } from "@mui/material";
 import clsx from "clsx";
+import DrawerReleaseLaterComponent from "../../components/DrawerReleaseLater";
 import Step1Component from "../../components/Step1";
 import Step2Component from "../../components/Step2";
+import Step3Component from "../../components/Step3";
 import StepperComponent from "../../components/Stepper";
 import useNewSurvayController, { NewSurvayProps } from "./NewSurvay.controller";
 import styles from "./NewSurvay.module.scss";
@@ -16,6 +19,8 @@ export default function NewSurvayPage(props: NewSurvayProps) {
     setisNotice,
     isShowCommon,
     setisShowCommon,
+    isreleaseLater,
+    setisreleaseLater,
   } = useNewSurvayController(props);
 
   return (
@@ -30,6 +35,7 @@ export default function NewSurvayPage(props: NewSurvayProps) {
             {step === 2 && (
               <Step2Component {...{ isNotice, setisNotice, setisShowCommon }} />
             )}
+            {step === 3 && <Step3Component {...{}} />}
           </div>
 
           {isShowCommon && (
@@ -47,20 +53,36 @@ export default function NewSurvayPage(props: NewSurvayProps) {
                 </div>
               )}
 
-              <div className={clsx(styles.nextButton, styles.button)}>
-                <ButtonCustomComponent
-                  label="بعدی"
-                  color="primary"
-                  variant="contained"
-                  onClick={() => {
-                    // if (step + 1 > formData.length) {
-                    //   setstatusPage(statusPageType.finish);
-                    // } else {
-                    setStep((prev) => prev + 1);
-                    // }
-                  }}
-                />
-              </div>
+              {step !== 3 ? (
+                <div className={clsx(styles.nextButton, styles.button)}>
+                  <ButtonCustomComponent
+                    label="بعدی"
+                    color="primary"
+                    variant="contained"
+                    onClick={() => {
+                      // if (step + 1 > formData.length) {
+                      //   setstatusPage(statusPageType.finish);
+                      // } else {
+                      setStep((prev) => prev + 1);
+                      // }
+                    }}
+                  />
+                </div>
+              ) : (
+                <>
+                  <div className={clsx(styles.nextButton, styles.button)}>
+                    <ButtonCustomComponent
+                      label="بعدا انتشار می‌دهم"
+                      color="inherit"
+                      variant="outlined"
+                      onClick={() => setisreleaseLater(true)}
+                    />
+                  </div>
+                  <DrawerReleaseLaterComponent
+                    {...{ isreleaseLater, setisreleaseLater }}
+                  />
+                </>
+              )}
             </Box>
           )}
         </div>
