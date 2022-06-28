@@ -1,9 +1,17 @@
 .root {
   z-index: 100;
+  padding: 14px 0;
   .BottomNavigation {
     color: var(--text-main-mute);
+    font-weight: 600;
+    font-size: var(--font-caption);
+    padding-top: 4px;
   }
   .BottomNavigationSelected {
     color: var(--primary-main);
+  }
+  .icon {
+    width: 21px;
+    height: 21px;
   }
 }
