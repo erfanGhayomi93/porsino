@@ -7,7 +7,7 @@ import { Box, Chip, Container, IconButton, Typography } from "@mui/material";
 import DrawerCustomComponent from "@/core/components/common/DrawerCustom";
 import AddIcon from "@mui/icons-material/Add";
 import React from "react";
-import { statusPageType } from "../Step2/Step2.controller";
+import { statusPageType } from "@/modules/create/new-survay/presentation/components/Step2/Step2.controller";
 
 export default function DrawerNewQuestionComponent(
   props: DrawerNewQuestionProps

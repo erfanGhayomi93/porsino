@@ -1,0 +1,33 @@
+.container {
+  padding: 0;
+  .root {
+    .title {
+      padding: 16px;
+      border-bottom: 1px solid var(--text-light-mute);
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      .iconButton {
+        background-color: var(--background-mute);
+      }
+    }
+    .content {
+      padding-bottom: 26px;
+      .item {
+        padding: 20px 16px;
+        border-bottom: 4px solid var(--background-mute);
+        display: flex;
+        justify-content: space-between;
+        &:last-child {
+          border-bottom: none;
+        }
+        span {
+          color: #41474d;
+        }
+      }
+      .icon {
+        fill: var(--background-primary);
+      }
+    }
+  }
+}

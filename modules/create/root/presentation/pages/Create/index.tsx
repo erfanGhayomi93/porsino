@@ -2,12 +2,19 @@ import AppHeaderComponent from "@/core/components/layouts/AppHeader";
 import NavigationBottomComponent from "@/core/components/layouts/NavigationBottom";
 import { Box, Container, Typography } from "@mui/material";
 import Image from "next/image";
-import DrawerCreateComponent from "../../components/DrawerCreate";
+import DrawerCreateBlankComponent from "../../components/DrawerCreateBlankSurvay";
+import DrawerCreateReadyComponent from "../../components/DrawerCreateReadySurvay";
 import useCreateController, { CreateProps } from "./Create.controller";
 import styles from "./Create.module.scss";
 
 export default function CreatePage(props: CreateProps) {
-  const { isShowDrawer, setisShowDrawer } = useCreateController(props);
+  const {
+    isShowDrawerBlank,
+    setisShowDrawerBlank,
+    isShowDrawerReady,
+    setisShowDrawerReady,
+    router,
+  } = useCreateController(props);
 
   return (
     <NavigationBottomComponent value={2}>
@@ -20,29 +27,33 @@ export default function CreatePage(props: CreateProps) {
           <Box
             textAlign="center"
             className={styles.image}
-            onClick={() => setisShowDrawer(true)}
+            onClick={() => setisShowDrawerBlank(true)}
           >
             <Image
               src="/images/create-survay.svg"
-              // layout="fill"
-              // objectFit="contain"
               width="100%"
               height="100%"
               layout="responsive"
               loading="lazy"
             />
           </Box>
-
-          <DrawerCreateComponent
-            value={isShowDrawer}
-            setValue={setisShowDrawer}
+          <DrawerCreateBlankComponent
+            value={isShowDrawerBlank}
+            setisShowDrawerBlank={setisShowDrawerBlank}
+            setisShowDrawerReady={setisShowDrawerReady}
+          />
+          <DrawerCreateReadyComponent
+            value={isShowDrawerReady}
+            setValue={setisShowDrawerReady}
           />
 
-          <Box textAlign="center" className={styles.image}>
+          <Box
+            textAlign="center"
+            className={styles.image}
+            onClick={() => router.push("/create/newCompetition")}
+          >
             <Image
               src="/images/create-competition.svg"
-              // layout="fill"
-              // objectFit="contain"
               width="100%"
               height="100%"
               layout="responsive"

@@ -1,8 +1,8 @@
 export type StepperProps = {
   step: number;
+  isPageSurvay?: boolean;
 };
 
 export default function useStepperController(props: StepperProps) {
-  const { step } = props;
-  return { step };
+  return { ...props };
 }

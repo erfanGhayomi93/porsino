@@ -5,9 +5,9 @@ import useStep2Controller, {
 } from "./Step2.controller";
 import styles from "./Step2.module.scss";
 import ButtonCustomComponent from "@/core/components/common/ButtonCustom";
-import CreateQuestionBoxComponent from "../../../../root/presentation/components/CreateQuestionBox";
 import PreviewQuestionsComponent from "@/modules/create/root/presentation/components/PreviewQuestions";
 import SingleAnswerComponent from "@/modules/create/root/presentation/components/SingleAnswer";
+import CreateQuestionBoxComponent from "../../../../root/presentation/components/CreateQuestionBox";
 
 export default function Step2Component(props: Step2Props) {
   const {

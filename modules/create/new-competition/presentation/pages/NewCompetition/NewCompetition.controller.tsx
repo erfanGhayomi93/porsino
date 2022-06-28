@@ -1,8 +1,9 @@
 import { useState } from "react";
+export type NewCompetitionProps = {};
 
-export type NewSurvayProps = {};
-
-export default function useNewSurvayController(props: NewSurvayProps) {
+export default function useNewCompetitionController(
+  props: NewCompetitionProps
+) {
   const [step, setStep] = useState(1);
   const [isNotice, setisNotice] = useState(true);
   const [isShowCommon, setisShowCommon] = useState(true);

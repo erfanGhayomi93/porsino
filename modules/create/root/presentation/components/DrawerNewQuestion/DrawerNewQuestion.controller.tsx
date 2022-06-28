@@ -1,4 +1,4 @@
-import { statusPageType } from "../Step2/Step2.controller";
+import { statusPageType } from "../../../../new-survay/presentation/components/Step2/Step2.controller";
 
 export type DrawerNewQuestionProps = {
   isShowNewQuestion: boolean;

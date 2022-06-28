@@ -6,12 +6,18 @@ import useDrawerCreateController, {
 import styles from "./DrawerCreate.module.scss";
 import CloseIcon from "@mui/icons-material/Close";
 import ButtonCustomComponent from "@/core/components/common/ButtonCustom";
+import { useEffect } from "react";
 
 export default function DrawerCreateComponent(props: DrawerCreateProps) {
-  const { value, setValue, router } = useDrawerCreateController(props);
+  const { value, setisShowDrawerBlank, router, setisShowDrawerReady } =
+    useDrawerCreateController(props);
+
+  useEffect(() => {
+    console.log("value", value);
+  }, [value]);
 
   return (
-    <DrawerCustomComponent value={value} setValue={setValue}>
+    <DrawerCustomComponent value={value} setValue={setisShowDrawerBlank}>
       <Container maxWidth="lg">
         <div className={styles.root}>
           <div className={styles.title}>
@@ -21,7 +27,7 @@ export default function DrawerCreateComponent(props: DrawerCreateProps) {
             <IconButton
               color="inherit"
               className={styles.iconButton}
-              onClick={() => setValue(false)}
+              onClick={() => setisShowDrawerBlank(false)}
             >
               <CloseIcon />
             </IconButton>
@@ -40,7 +46,10 @@ export default function DrawerCreateComponent(props: DrawerCreateProps) {
               </svg>
             </div>
 
-            <div className={styles.item}>
+            <div
+              className={styles.item}
+              onClick={() => setisShowDrawerReady(true)}
+            >
               <Typography variant="body1" className="weight-600">
                 پرسشنامه آماده
               </Typography>

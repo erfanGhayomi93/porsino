@@ -12,7 +12,7 @@ import StepConnector, {
 import { StepIconProps } from "@mui/material/StepIcon";
 
 export default function StepperComponent(props: StepperProps) {
-  const { step } = useStepperController(props);
+  const { step, isPageSurvay } = useStepperController(props);
 
   const ColorlibConnector = styled(StepConnector)(({ theme }) => ({
     [`&.${stepConnectorClasses.alternativeLabel}`]: {
@@ -82,7 +82,11 @@ export default function StepperComponent(props: StepperProps) {
     const icons: { [index: string]: React.ReactElement } = {
       1: (
         <svg className={styles.icon}>
-          <use xlinkHref="/sprit.svg#todo-line" />
+          <use
+            xlinkHref={`/sprit.svg#${
+              isPageSurvay ? "todo-line" : "step1-competion"
+            }`}
+          />
         </svg>
       ),
       2: (

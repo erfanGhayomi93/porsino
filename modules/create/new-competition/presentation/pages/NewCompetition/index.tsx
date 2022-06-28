@@ -1,17 +1,18 @@
 import ButtonCustomComponent from "@/core/components/common/ButtonCustom";
-import DrawerCustomComponent from "@/core/components/common/DrawerCustom";
 import AppHeaderComponent from "@/core/components/layouts/AppHeader";
+import DrawerReleaseLaterComponent from "@/modules/create/root/presentation/components/DrawerReleaseLater";
+import StepperComponent from "@/modules/create/root/presentation/components/Stepper";
 import { Box, Container } from "@mui/material";
 import clsx from "clsx";
-import DrawerReleaseLaterComponent from "../../../../root/presentation/components/DrawerReleaseLater";
 import Step1Component from "../../components/Step1";
 import Step2Component from "../../components/Step2";
 import Step3Component from "../../components/Step3";
-import StepperComponent from "../../../../root/presentation/components/Stepper";
-import useNewSurvayController, { NewSurvayProps } from "./NewSurvay.controller";
-import styles from "./NewSurvay.module.scss";
+import useNewCompetitionController, {
+  NewCompetitionProps,
+} from "./NewCompetition.controller";
+import styles from "./NewCompetition.module.scss";
 
-export default function NewSurvayPage(props: NewSurvayProps) {
+export default function NewCompetitionPage(props: NewCompetitionProps) {
   const {
     step,
     setStep,
@@ -21,21 +22,23 @@ export default function NewSurvayPage(props: NewSurvayProps) {
     setisShowCommon,
     isreleaseLater,
     setisreleaseLater,
-  } = useNewSurvayController(props);
+  } = useNewCompetitionController(props);
 
   return (
     <div>
-      <AppHeaderComponent title="ساخت نظرسنجی" />
+      <AppHeaderComponent title="ساخت مسابقه" />
       <Container maxWidth="lg">
         <div className={styles.root}>
           <div className={styles.content}>
-            {isShowCommon && <StepperComponent step={step} isPageSurvay />}
+            {isShowCommon && (
+              <StepperComponent step={step} isPageSurvay={false} />
+            )}
 
             {step === 1 && <Step1Component />}
             {step === 2 && (
               <Step2Component {...{ isNotice, setisNotice, setisShowCommon }} />
             )}
-            {step === 3 && <Step3Component {...{}} />}
+            {step === 3 && <Step3Component />}
           </div>
 
           {isShowCommon && (

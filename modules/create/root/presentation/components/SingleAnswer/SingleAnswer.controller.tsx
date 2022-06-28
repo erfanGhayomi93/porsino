@@ -2,8 +2,8 @@ import {
   getLocalStorage,
   setLocalStorage,
 } from "@/core/components/common/localStorageMethod/indes";
+import { statusPageType } from "@/modules/create/new-survay/presentation/components/Step2/Step2.controller";
 import { useState } from "react";
-import { statusPageType } from "../Step2/Step2.controller";
 
 export type SingleAnswerProps = {
   setstatusPage: (val: string) => void;

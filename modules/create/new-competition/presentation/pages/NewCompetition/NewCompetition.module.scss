@@ -1,0 +1,18 @@
+.root {
+  padding: 16px 0;
+  .content {
+    min-height: calc(100vh - 180px);
+  }
+  .buttons {
+    display: flex;
+    padding: 16px 0 8px;
+    margin-top: 24px;
+    flex-grow: 1;
+    .button {
+      width: 100%;
+    }
+    .prevButton {
+      margin-left: 16px;
+    }
+  }
+}
