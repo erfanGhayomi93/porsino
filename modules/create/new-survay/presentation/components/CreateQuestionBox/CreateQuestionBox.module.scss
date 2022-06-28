@@ -9,5 +9,9 @@
   align-items: center;
   span {
     color: var(--text-main-mute);
+    padding-top: 10px;
+  }
+  .icon {
+    fill: var(--text-main-mute);
   }
 }

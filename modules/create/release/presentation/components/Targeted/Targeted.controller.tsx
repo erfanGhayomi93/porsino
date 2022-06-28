@@ -1,6 +1,9 @@
+import { useState } from "react";
+
 export type TargetedProps = {};
 
 export default function useTargetedController(props: TargetedProps) {
+  const [isShowTypeQues, setisShowTypeQues] = useState(true);
   const {} = props;
-  return { ...props };
+  return { ...props, isShowTypeQues, setisShowTypeQues };
 }
