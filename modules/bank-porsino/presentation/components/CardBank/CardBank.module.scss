@@ -1,0 +1,28 @@
+.root {
+  padding: 24px 0;
+  border-bottom: 4px solid var(--background-mute);
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  &:last-child {
+    border: none;
+  }
+  .subject {
+    padding: 0 8px 12px 0;
+  }
+  .date {
+    padding: 12px 8px 0 0;
+  }
+
+  .icon {
+    padding: 6px;
+    gap: 8px;
+    border: 1px solid var(--text-light-mute);
+    border-radius: 50%;
+    svg {
+      height: 18px;
+      width: 23px;
+      vertical-align: sub;
+    }
+  }
+}

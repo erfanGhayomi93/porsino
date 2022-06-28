@@ -1,0 +1,33 @@
+.root {
+  padding: 16px 0;
+  .box {
+    display: flex;
+    align-items: stretch;
+  }
+  .filter {
+    padding: 16px;
+    border-radius: 12px;
+    border: 1px solid var(--text-light-mute);
+    margin-left: 6px;
+    svg {
+      width: 20px;
+      height: 20px;
+      vertical-align: middle;
+    }
+  }
+  .search {
+    margin-right: 6px;
+    flex-grow: 1;
+    svg {
+      width: 20.3px;
+      height: 20.3px;
+    }
+    .rootClasses {
+      border-radius: 12px;
+      background-color: var(--background-mute);
+    }
+    .inputClasses {
+      border-color: var(--background-mute) !important;
+    }
+  }
+}

@@ -16,6 +16,8 @@ type InputTextProps = {
   readOnly?: boolean;
   sx?: any;
   onClick?: any;
+  style?: any;
+  classes?: any;
 };
 
 export default function InputTextComponent({
@@ -30,6 +32,8 @@ export default function InputTextComponent({
   readOnly,
   sx,
   onClick,
+  style,
+  classes,
 }: InputTextProps) {
   return (
     <OutlinedInput
@@ -38,9 +42,13 @@ export default function InputTextComponent({
       placeholder={placeholder}
       endAdornment={endAdornment}
       startAdornment={startAdornment}
-      classes={{
-        root: styles.rootInput,
-      }}
+      classes={
+        classes
+          ? classes
+          : {
+              root: styles.rootInput,
+            }
+      }
       fullWidth={fullWidth}
       label={label}
       value={value}
@@ -52,6 +60,7 @@ export default function InputTextComponent({
         "aria-label": "weight",
       }}
       onClick={onClick}
+      style={style}
     />
   );
 }

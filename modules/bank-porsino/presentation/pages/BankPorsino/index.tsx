@@ -1,5 +1,8 @@
+import AppHeaderComponent from "@/core/components/layouts/AppHeader";
 import NavigationBottomComponent from "@/core/components/layouts/NavigationBottom";
-import { Container } from "@mui/material";
+import { Box, Container } from "@mui/material";
+import CardBankComponent from "../../components/CardBank";
+import FilterBoxComponent from "../../components/FilterBox";
 import useBankPorsinoController, {
   BankPorsinoProps,
 } from "./BankPorsino.controller";
@@ -10,7 +13,18 @@ export default function BankPorsinoPage(props: BankPorsinoProps) {
 
   return (
     <NavigationBottomComponent value={3}>
-      <Container maxWidth="lg"></Container>
+      <AppHeaderComponent title="بانک پرسینو" />
+      <Container maxWidth="lg">
+        <FilterBoxComponent />
+
+        <Box className={styles.cards}>
+          <CardBankComponent />
+          <CardBankComponent />
+          <CardBankComponent />
+          <CardBankComponent />
+          <CardBankComponent />
+        </Box>
+      </Container>
     </NavigationBottomComponent>
   );
 }
