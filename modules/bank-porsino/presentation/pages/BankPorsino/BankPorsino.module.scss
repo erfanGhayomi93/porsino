@@ -1,2 +1,16 @@
 .root {
+  .chips {
+    padding: 16px 0;
+    .chip {
+      margin-left: 8px;
+      border: 1px solid #cba7f1;
+    }
+  }
+  .deleteIcon {
+    font-size: 18px;
+    color: var(---primary-light) !important;
+  }
+  .cards {
+    margin-bottom: 54px;
+  }
 }
