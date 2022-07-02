@@ -11,12 +11,12 @@
     height: 100%;
   }
   .porsino {
-    position: absolute;
+    position: fixed;
     top: calc(50vh - 60px);
     left: calc(50% - 115px);
   }
   .powered {
-    position: absolute;
+    position: fixed;
     bottom: 20px;
     left: calc(50% - 59px);
   }
@@ -26,7 +26,7 @@
     background-size: cover;
     width: 344px;
     height: 465px;
-    position: absolute;
+    position: fixed;
     top: 16px;
   }
   .slide {
@@ -39,7 +39,7 @@
     }
     .content {
       text-align: center;
-      position: absolute;
+      position: fixed;
       bottom: 150px;
       color: var(--text-light);
       width: 100%;
