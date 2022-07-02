@@ -34,13 +34,13 @@
     height: 100vh;
     height: calc(var(--vh, 1vh) * 100);
     .logoSlide {
-      padding-top: 116px;
+      padding-top: 13vh;
       text-align: center;
     }
     .content {
       text-align: center;
       position: fixed;
-      bottom: 150px;
+      bottom: 160px;
       color: var(--text-light);
       width: 100%;
     }
