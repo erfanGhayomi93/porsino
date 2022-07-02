@@ -37,6 +37,7 @@ export default function PrimaryPage(props: PrimaryProps) {
       <div
         className={clsx({
           [styles.loaded]: !initialize,
+          [styles.secondary]: true,
         })}
       >
         <div className={styles.circle}></div>
@@ -47,7 +48,7 @@ export default function PrimaryPage(props: PrimaryProps) {
         >
           <SwiperSlide className={styles.slide}>
             <div className={styles.logoSlide}>
-              <Image src="/images/logo-slide1.svg" width={200} height={200} />
+              <Image src="/images/slide1.svg" width={200} height={300} />
             </div>
             <div className={styles.content}>
               <Typography variant="h6" className="strong">
@@ -60,7 +61,7 @@ export default function PrimaryPage(props: PrimaryProps) {
           </SwiperSlide>
           <SwiperSlide className={styles.slide}>
             <div className={styles.logoSlide}>
-              <Image src="/images/logo-slide2.svg" width={200} height={200} />
+              <Image src="/images/slide2.svg" width={235} height={240} />
               <div className={styles.content}>
                 <Typography variant="h6" className="strong">
                   ایــنجا می‌تــونی توی نظــرسنــجی‌ها
@@ -73,7 +74,7 @@ export default function PrimaryPage(props: PrimaryProps) {
           </SwiperSlide>
           <SwiperSlide className={styles.slide}>
             <div className={styles.logoSlide}>
-              <Image src="/images/logo-slide3.svg" width={200} height={200} />
+              <Image src="/images/slide3.svg" width={312} height={220} />
               <div className={styles.content}>
                 <Typography variant="h6" className="strong">
                   خودت می‌تونی نظرسنجی و مسابقه
