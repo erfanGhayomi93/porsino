@@ -46,7 +46,7 @@
     }
   }
   .arrow {
-    position: absolute;
+    position: fixed;
     bottom: 32px;
     left: 24px;
     cursor: pointer;
@@ -76,7 +76,7 @@
       bottom: 50px !important;
       padding-right: 15px;
       text-align: right;
-      position: absolute;
+      position: fixed;
     }
   }
 }
