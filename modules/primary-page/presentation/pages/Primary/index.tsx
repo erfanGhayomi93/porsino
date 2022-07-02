@@ -55,7 +55,7 @@ export default function PrimaryPage(props: PrimaryProps) {
                 ایــنجا می‌تــونی توی نظــرسنــجی‌ها
               </Typography>
               <Typography variant="h6">
-                شـرکت کنـی و ازش کسب درآمــد کنی
+                شـرکت کنـی و ارز دیجیتال پاداش بگیری
               </Typography>
             </div>
           </SwiperSlide>
@@ -64,10 +64,10 @@ export default function PrimaryPage(props: PrimaryProps) {
               <Image src="/images/slide2.svg" width={235} height={240} />
               <div className={styles.content}>
                 <Typography variant="h6" className="strong">
-                  ایــنجا می‌تــونی توی نظــرسنــجی‌ها
+                  می‌تونی تو کلی مسابقه شرکت کنی
                 </Typography>
                 <Typography variant="h6">
-                  شـرکت کنـی و ازش کسب درآمــد کنی
+                  و بـــرنـــده قـــرعه‌کشـــی‌ها بـــاشـــی
                 </Typography>
               </div>
             </div>
