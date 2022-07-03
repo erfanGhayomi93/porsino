@@ -1,7 +1,8 @@
 import ButtonCustomComponent from "@/core/components/common/ButtonCustom";
+import NoDataComponent from "@/core/components/common/NoData";
 import AppHeaderComponent from "@/core/components/layouts/AppHeader";
 import NavigationBottomComponent from "@/core/components/layouts/NavigationBottom";
-import { Box, Typography } from "@mui/material";
+import { Typography } from "@mui/material";
 import { Container } from "@mui/system";
 import Image from "next/image";
 import CardSurvayComponent from "../../components/CardSurvay";
@@ -9,7 +10,20 @@ import useSurvayController, { SurvayProps } from "./Survay.controller";
 import styles from "./Survay.module.scss";
 
 export default function SurvayPage(props: SurvayProps) {
-  const {} = useSurvayController(props);
+  const { data, isData } = useSurvayController(props);
+
+  if (!isData) {
+    return (
+      <NavigationBottomComponent value={0}>
+        <AppHeaderComponent title="نظرسنجی‌ها" />
+
+        <NoDataComponent
+          label={"در حال حاضر نظرسنجی موجود نیست!"}
+          srcImg="no-data-survay"
+        />
+      </NavigationBottomComponent>
+    );
+  }
 
   return (
     <div className={styles.root}>
@@ -17,9 +31,15 @@ export default function SurvayPage(props: SurvayProps) {
         <NavigationBottomComponent value={0}>
           <AppHeaderComponent title="نظرسنجی‌ها" />
 
-          <CardSurvayComponent />
-          <CardSurvayComponent />
-          <CardSurvayComponent />
+          {data?.map((item: any) => {
+            const { expire_at, title, logo } = item;
+            return (
+              <CardSurvayComponent
+                key={item.id}
+                {...{ expire_at, title, logo }}
+              />
+            );
+          })}
         </NavigationBottomComponent>
       </Container>
 

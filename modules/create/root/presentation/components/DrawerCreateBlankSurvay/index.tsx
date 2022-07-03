@@ -12,10 +12,6 @@ export default function DrawerCreateComponent(props: DrawerCreateProps) {
   const { value, setisShowDrawerBlank, router, setisShowDrawerReady } =
     useDrawerCreateController(props);
 
-  useEffect(() => {
-    console.log("value", value);
-  }, [value]);
-
   return (
     <DrawerCustomComponent value={value} setValue={setisShowDrawerBlank}>
       <Container maxWidth="lg">

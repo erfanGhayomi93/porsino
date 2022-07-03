@@ -1,6 +1,8 @@
-export type SurvayProps = {};
+export type SurvayProps = {
+  data: any;
+};
 
 export default function useSurvayController(props: SurvayProps) {
-  const {} = props;
-  return { ...props };
+  const { data } = props;
+  return { ...props , isData: data && data.length > 0 };
 }

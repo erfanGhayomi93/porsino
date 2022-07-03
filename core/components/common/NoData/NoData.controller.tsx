@@ -1,8 +1,8 @@
 export type NoDataProps = {
   label: string;
+  srcImg: string;
 };
 
 export default function useNoDataController(props: NoDataProps) {
-  const {} = props;
   return { ...props };
 }

@@ -23,8 +23,6 @@ export default function PreviewQuestionsComponent(
     setisShowCommon,
   } = usePreviewQuestionsController(props);
 
-  console.log("questions", questions);
-
   return (
     <div className={styles.root}>
       <Typography className={styles.title} variant="h6">

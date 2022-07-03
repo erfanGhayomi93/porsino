@@ -35,9 +35,7 @@ export default function useDetailsSurvayController(props: DetailsSurvayProps) {
     setFormData(res);
   }, []);
 
-  useEffect(() => {
-    console.log("formData", formData);
-  }, [formData]);
+  
 
   const {} = props;
   return {

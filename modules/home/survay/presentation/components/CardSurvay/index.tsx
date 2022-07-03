@@ -1,6 +1,6 @@
 import ButtonCustomComponent from "@/core/components/common/ButtonCustom";
+import { toJalaaliWithDay } from "@/core/helpers/date";
 import { Box, Typography } from "@mui/material";
-import { Container } from "@mui/system";
 import clsx from "clsx";
 import Image from "next/image";
 import { useRouter } from "next/router";
@@ -10,7 +10,7 @@ import useCardSurvayController, {
 import styles from "./CardSurvay.module.scss";
 
 export default function CardSurvayComponent(props: CardSurvayProps) {
-  const {} = useCardSurvayController(props);
+  const { expire_at, title, logo } = useCardSurvayController(props);
   const router = useRouter();
 
   const handleClick = () => {
@@ -22,7 +22,7 @@ export default function CardSurvayComponent(props: CardSurvayProps) {
       <Box className={styles.subject}>
         <Image
           className={styles.img}
-          src="/images/avatar.svg"
+          src={logo ? logo : "/"}
           width={80}
           height={80}
         />
@@ -33,7 +33,7 @@ export default function CardSurvayComponent(props: CardSurvayProps) {
             [styles.type]: true,
           })}
         >
-          موضوع نظرسنجی
+          {title}
         </Typography>
       </Box>
       <Box className={styles.content}>
@@ -44,7 +44,7 @@ export default function CardSurvayComponent(props: CardSurvayProps) {
           </Typography>
         </div>
         <div>
-          <Typography variant="h6">۱۲:۳۵:45</Typography>
+          <Typography variant="h6">{toJalaaliWithDay(expire_at)}</Typography>
         </div>
       </Box>
       <Box>

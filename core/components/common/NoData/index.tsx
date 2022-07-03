@@ -4,16 +4,22 @@ import useNoDataController, { NoDataProps } from "./NoData.controller";
 import styles from "./NoData.module.scss";
 
 export default function NoDataComponent(props: NoDataProps) {
-  const { label } = useNoDataController(props);
+  const { label, srcImg } = useNoDataController(props);
 
   return (
     <div className={styles.root}>
       <Box className={styles.box}>
-        <Image src="/images/no-data.svg" width={170} height={170} />
+        <div className={styles.backImg}>
+          <Image src={`/images/${srcImg}.svg`} width={160} height={160} />
+        </div>
 
-        <Typography variant="h6" component="h6" className="strong">
+        <Typography variant="h6" component="h6">
           {label}
         </Typography>
+
+        <svg className={styles.sticker}>
+          <use xlinkHref="/sprit.svg#sticker-angray" />
+        </svg>
       </Box>
     </div>
   );

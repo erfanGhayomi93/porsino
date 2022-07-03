@@ -38,6 +38,11 @@
         justify-content: space-between;
         .item {
           display: flex;
+          align-items: center;
+          svg {
+            width: 15px;
+            height: 15px;
+          }
         }
         h6 {
           margin-right: 9px;
@@ -56,10 +61,12 @@
           align-items: center;
           padding: 24px 0;
           border-bottom: 1px solid var(--text-light-mute);
-          > div {
+          .box {
             display: flex;
-            p {
-              padding: 16px;
+            span {
+              padding-right: 16px;
+              display: inline-block;
+              padding-left: 6px;
             }
           }
         }

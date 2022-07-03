@@ -1,4 +1,5 @@
 import ButtonCustomComponent from "@/core/components/common/ButtonCustom";
+import { toJalaaliWithDay } from "@/core/helpers/date";
 import { Avatar, Typography } from "@mui/material";
 import { Box } from "@mui/system";
 import useCardCompetitionController, {
@@ -7,7 +8,8 @@ import useCardCompetitionController, {
 import styles from "./CardCompetition.module.scss";
 
 export default function CardCompetitionComponent(props: CardCompetitionProps) {
-  const {} = useCardCompetitionController(props);
+  const { user_name, balance, expire_at, logo, questions_count } =
+    useCardCompetitionController(props);
 
   return (
     <div className={styles.card}>
@@ -18,7 +20,7 @@ export default function CardCompetitionComponent(props: CardCompetitionProps) {
           className={styles.avatar}
         />
         <Typography variant="body1" component="h6" className="strong">
-          فرینوش موگویی
+          {user_name.split("_")[1]}
         </Typography>
       </Box>
 
@@ -27,19 +29,19 @@ export default function CardCompetitionComponent(props: CardCompetitionProps) {
           <Typography variant="body1" component="span">
             تعداد سوال:
           </Typography>
-          <Typography variant="body1">5 سوال</Typography>
+          <Typography variant="body1">{questions_count} سوال</Typography>
         </div>
         <div className={styles.item}>
           <Typography variant="body1" component="span">
             میزان جایزه:
           </Typography>
-          <Typography variant="body1">2,۰۰۰ شیبا</Typography>
+          <Typography variant="body1">{balance} شیبا</Typography>
         </div>
         <div className={styles.item}>
           <Typography variant="body1" component="span">
             تاریخ اتمام:
           </Typography>
-          <Typography variant="body1">۲۸ خرداد ۱۴۰۱</Typography>
+          <Typography variant="body1">{toJalaaliWithDay(expire_at)}</Typography>
         </div>
       </Box>
 

@@ -1,6 +1,8 @@
-export type CompetitionProps = {};
+export type CompetitionProps = {
+  data: any;
+};
 
 export default function useCompetitionController(props: CompetitionProps) {
-  const {} = props;
-  return { ...props, isData: true };
+  const { data } = props;
+  return { ...props, isData: data && data.length > 0 };
 }

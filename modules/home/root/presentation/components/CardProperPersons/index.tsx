@@ -7,14 +7,22 @@ import styles from "./CardProperPersons.module.scss";
 export default function CardProperPersonsComponent(
   props: CardProperPersonsProps
 ) {
-  const {} = useCardProperPersonsController(props);
+  const { balance, user_name, avatar, index } =
+    useCardProperPersonsController(props);
 
   return (
     <div className={styles.root}>
       <Box className={styles.surface}>
-        <Avatar alt="avatar" src="/images/avatar.svg" />
+        <Avatar
+          alt="avatar"
+          src={
+            avatar
+              ? `/images/avatar/${avatar}.svg`
+              : "http://65.21.109.77/assets/images/logo.png"
+          }
+        />
         <Typography variant="body1" className="strong">
-          فرینوش موگویی
+          {user_name.split("_")[1]}
         </Typography>
       </Box>
       <Box className={styles.content}>
@@ -23,7 +31,7 @@ export default function CardProperPersonsComponent(
             رتبه:
           </Typography>
           <Typography variant="body1" component="span">
-            ۲۰۰
+            {index + 1}
           </Typography>
         </div>
         <div className={styles.item}>
@@ -31,7 +39,7 @@ export default function CardProperPersonsComponent(
             اعتبار:
           </Typography>
           <Typography variant="body1" component="span">
-            550,۰۰۰ شیبا
+            {balance} شیبا
           </Typography>
         </div>
       </Box>

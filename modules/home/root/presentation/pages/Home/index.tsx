@@ -10,7 +10,7 @@ import { useRouter } from "next/router";
 import AppHeaderComponent from "@/core/components/layouts/AppHeader";
 
 export default function HomePage(props: HomeProps) {
-  const {} = useHomeController(props);
+  const { data } = useHomeController(props);
   const router = useRouter();
 
   const handleRoute = (path: string): void => {
@@ -34,7 +34,7 @@ export default function HomePage(props: HomeProps) {
               </Typography>
               <p>
                 <Typography variant="body1" component="span">
-                  2,۰۰۰
+                  {data.balance}
                 </Typography>
                 <Typography variant="body1" component="span">
                   شیبا
@@ -50,7 +50,7 @@ export default function HomePage(props: HomeProps) {
                 رتبه شما‌:
               </Typography>
               <Typography variant="body1" component="span">
-                120
+                {data.level}
               </Typography>
             </div>
           </Box>
@@ -58,8 +58,10 @@ export default function HomePage(props: HomeProps) {
           <Box className={styles.todayPrograms}>
             <div className={styles.title}>
               <div className={styles.item}>
-                <Image src="/images/newsPaper.svg" width={15} height={15} />
-                <Typography variant="h6" component="h6" className="strong">
+                <svg>
+                  <use xlinkHref="/sprit.svg#newsPaper"></use>
+                </svg>
+                <Typography variant="h6" component="h6" className="weight-600">
                   برنامه‌های امروز
                 </Typography>
               </div>
@@ -73,52 +75,91 @@ export default function HomePage(props: HomeProps) {
                 className={styles.item}
                 onClick={() => handleRoute("/home/survay")}
               >
-                <div>
+                <Box display="flex" alignItems="center">
                   <Image src="/images/survay-icon.svg" width={56} height={56} />
-                  <Typography variant="body1" component="p">
-                    ۴ نظر سنجی موجود است
-                  </Typography>
-                </div>
-                <div>
+
+                  <Box className={styles.box}>
+                    <Typography
+                      variant="h3"
+                      component="span"
+                      className="weight-600"
+                    >
+                      {data.active_polls}
+                    </Typography>
+                    <Typography
+                      variant="body1"
+                      component="p"
+                      className="weight-600"
+                    >
+                      نظر سنجی موجود است
+                    </Typography>
+                  </Box>
+                </Box>
+
+                <Box>
                   <ArrowBackIosNewIcon />
-                </div>
+                </Box>
               </div>
+
               <div
                 className={styles.item}
                 onClick={() => handleRoute("/home/competition")}
               >
-                <div>
+                <Box display="flex" alignItems="center">
                   <Image
                     src="/images/competition-icon.svg"
                     width={56}
                     height={56}
                   />
-                  <Typography variant="body1" component="p">
-                    2 مسابقه موجود است
-                  </Typography>
-                </div>
-                <div>
+
+                  <Box className={styles.box}>
+                    <Typography
+                      variant="h3"
+                      component="span"
+                      className="weight-600"
+                    >
+                      {data.active_competitions}
+                    </Typography>
+                    <Typography
+                      variant="body1"
+                      component="p"
+                      className="weight-600"
+                    >
+                      مسابقه موجود است
+                    </Typography>
+                  </Box>
+                </Box>
+
+                <Box>
                   <ArrowBackIosNewIcon />
-                </div>
+                </Box>
               </div>
 
               <div
                 className={styles.item}
                 onClick={() => handleRoute("/home/lottery")}
               >
-                <div>
+                <Box display="flex" alignItems="center">
                   <Image
                     src="/images/lottery-icon.svg"
                     width={56}
                     height={56}
                   />
-                  <Typography variant="body1" component="p">
-                    اطلاع رسانی قرعه‌کشی‌ها
-                  </Typography>
-                </div>
-                <div>
+
+                  <Box className={styles.box}>
+                    <Typography
+                      variant="body1"
+                      component="span"
+                      className="weight-600"
+                    >
+                      اطلاع رسانی قرعه‌کشی‌ها
+                    </Typography>
+                  </Box>
+                </Box>
+
+                <Box>
                   <ArrowBackIosNewIcon />
-                </div>
+                </Box>
               </div>
             </div>
           </Box>
@@ -141,10 +182,16 @@ export default function HomePage(props: HomeProps) {
           </div>
           <div className={styles.content}>
             <div className={styles.box}>
-              <CardProperPersonsComponent />
-              <CardProperPersonsComponent />
-              <CardProperPersonsComponent />
-              <CardProperPersonsComponent />
+              {data.top_users.map((item: any, ind: number) => {
+                const { balance, user_name, avatar } = item;
+                return (
+                  <CardProperPersonsComponent
+                    key={ind}
+                    {...{ balance, user_name, avatar }}
+                    index={ind}
+                  />
+                );
+              })}
             </div>
           </div>
         </Box>
