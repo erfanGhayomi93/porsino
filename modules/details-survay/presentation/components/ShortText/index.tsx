@@ -3,7 +3,7 @@ import useShortTextController, { ShortTextProps } from "./ShortText.controller";
 import styles from "./ShortText.module.scss";
 
 export default function ShortTextComponent(props: ShortTextProps) {
-  const {} = useShortTextController(props);
+  const { text, discription } = useShortTextController(props);
 
   return (
     <Container maxWidth="lg">
@@ -11,10 +11,10 @@ export default function ShortTextComponent(props: ShortTextProps) {
         <div className={styles.box}>
           <Box className={styles.title}>
             <Typography variant="body1" className="strong">
-              تعداد اعضای خانواده شما چند نفر است؟
+              {text}
             </Typography>
             <Typography variant="body2" component="span">
-              (پاسخ متنی کوتاه)
+              {discription}
             </Typography>
           </Box>
 

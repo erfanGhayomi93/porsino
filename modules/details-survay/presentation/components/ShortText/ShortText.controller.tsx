@@ -1,6 +1,8 @@
-export type ShortTextProps = {};
+export type ShortTextProps = {
+  data: any;
+};
 
 export default function useShortTextController(props: ShortTextProps) {
-  const {} = props;
-  return { ...props };
+  const { data } = props;
+  return { ...props, ...data };
 }

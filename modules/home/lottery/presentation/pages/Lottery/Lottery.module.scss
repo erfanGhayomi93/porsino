@@ -1,3 +1,65 @@
 .root {
   padding-top: 16px;
+  .winner {
+    background: url("/images/winner-competition.svg") center center no-repeat;
+    background-size: cover;
+    width: 328px;
+    height: 365px;
+    margin: 0 auto 40px;
+    position: relative;
+    padding: 16px;
+    .title {
+      width: 100%;
+      color: var(--background-primary);
+      background: rgba(255, 255, 255, 0.7);
+      border-radius: 100px;
+      padding: 12px;
+      text-align: center;
+    }
+
+    .presonOfOne {
+      position: absolute;
+      width: 66px;
+      height: 66px;
+      left: calc(50% - 33px);
+      bottom: 174px;
+    }
+    .presonOfTwo {
+      position: absolute;
+      width: 40px;
+      height: 40px;
+      left: 58px;
+      bottom: 120px;
+    }
+    .presonOfThree {
+      position: absolute;
+      width: 40px;
+      height: 40px;
+      right: 54px;
+      bottom: 77px;
+    }
+    .names {
+      span {
+        display: block;
+        color: white;
+        text-align: center;
+        margin-bottom: 4px;
+      }
+      .nameOfOne {
+        position: absolute;
+        left: calc(50% - 19px);
+        bottom: 104px;
+      }
+      .nameOfTwo {
+        position: absolute;
+        left: 58px;
+        bottom: 50px;
+      }
+      .nameOfThree {
+        position: absolute;
+        right: 54px;
+        bottom: 10px;
+      }
+    }
+  }
 }

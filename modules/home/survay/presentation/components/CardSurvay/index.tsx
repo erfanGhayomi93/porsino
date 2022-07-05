@@ -10,11 +10,13 @@ import useCardSurvayController, {
 import styles from "./CardSurvay.module.scss";
 
 export default function CardSurvayComponent(props: CardSurvayProps) {
-  const { expire_at, title, logo } = useCardSurvayController(props);
+  const { expire_at, title, logo, hash } = useCardSurvayController(props);
   const router = useRouter();
 
   const handleClick = () => {
-    router.push("/home/survay/detailsSurvay/hash");
+    router.push({
+      pathname: `/home/survay/detailsSurvay/${hash}`,
+    });
   };
 
   return (

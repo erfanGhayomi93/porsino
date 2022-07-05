@@ -1,0 +1,22 @@
+.root {
+  .content {
+    margin-top: 16px;
+    .box {
+      //   display: flex;
+      //   justify-content: space-between;
+      //   align-items: center;
+      margin: 16px 0;
+
+      .options {
+        background-color: var(--background-mute);
+        text-align: center;
+        padding: 16px;
+        border-radius: 12px;
+        margin-top: 24px;
+        label {
+          margin: 0 8px;
+        }
+      }
+    }
+  }
+}

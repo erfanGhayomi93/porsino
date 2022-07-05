@@ -32,11 +32,11 @@ export default function SurvayPage(props: SurvayProps) {
           <AppHeaderComponent title="نظرسنجی‌ها" />
 
           {data?.map((item: any) => {
-            const { expire_at, title, logo } = item;
+            const { expire_at, title, logo, hash } = item;
             return (
               <CardSurvayComponent
                 key={item.id}
-                {...{ expire_at, title, logo }}
+                {...{ expire_at, title, logo, hash }}
               />
             );
           })}
