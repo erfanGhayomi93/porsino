@@ -13,12 +13,14 @@ import styles from "./DetailsSurvay.module.scss";
 
 export default function DetailsSurvayPage(props: DetailsSurvayProps) {
   const {
-    formData,
+    thisQuestion,
     priority,
     typeComponents,
     setPriority,
     statusPage,
     setstatusPage,
+    data,
+    isDisabledButton,
   } = useDetailsSurvayController(props);
 
   return (
@@ -28,19 +30,14 @@ export default function DetailsSurvayPage(props: DetailsSurvayProps) {
       )}
 
       {statusPage === statusPageType.during && (
-        <>
+        <div className={styles.during}>
           <AppHeaderComponent title="دسته بندی کاربران ۱" />
           <HeaderQuestionComponent
-            allQuestion={formData.length}
+            allQuestion={data?.form?.questions.length}
             numberQuestion={priority}
           />
 
-          {formData
-            .filter((item: any) => item.priority === priority)
-            .map(
-              (item: any, ind) =>
-                typeComponents({ key: ind, data: item.data })[item.type]
-            )}
+          {typeComponents()[thisQuestion[0].type]}
 
           <Box className={styles.buttons}>
             {priority !== 1 && (
@@ -61,8 +58,9 @@ export default function DetailsSurvayPage(props: DetailsSurvayProps) {
                 label="بعدی"
                 color="primary"
                 variant="contained"
+                disabled={isDisabledButton()}
                 onClick={() => {
-                  if (priority + 1 > formData.length) {
+                  if (priority + 1 > data?.form?.questions.length) {
                     setstatusPage(statusPageType.finish);
                   } else {
                     setPriority((prev) => prev + 1);
@@ -71,7 +69,7 @@ export default function DetailsSurvayPage(props: DetailsSurvayProps) {
               />
             </div>
           </Box>
-        </>
+        </div>
       )}
 
       {statusPage === statusPageType.finish && <FinishComponent />}

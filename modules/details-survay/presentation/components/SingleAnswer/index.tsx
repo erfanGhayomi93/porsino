@@ -13,7 +13,12 @@ import useSingleAnswerController, {
 import styles from "./SingleAnswer.module.scss";
 
 export default function SingleAnswerComponent(props: SingleAnswerProps) {
-  const { text, description, options } = useSingleAnswerController(props);
+  const { text, description, options, DataSingleChoice } =
+    useSingleAnswerController(props);
+
+  const handleChange = (event: React.ChangeEvent<HTMLInputElement>) => {
+    DataSingleChoice.setvalue((event.target as HTMLInputElement).value);
+  };
 
   return (
     <Container maxWidth="lg">
@@ -32,19 +37,19 @@ export default function SingleAnswerComponent(props: SingleAnswerProps) {
             <RadioGroup
               aria-labelledby="demo-controlled-radio-buttons-group"
               name="controlled-radio-buttons-group"
-              // value={value}
-              // onChange={handleChange}
+              value={DataSingleChoice.value}
+              onChange={handleChange}
             >
               {options.map((item: any, ind: number) => (
                 <div
                   className={clsx({
                     [styles.item]: true,
-                    [styles.selected]: ind === 2,
+                    [styles.selected]: +DataSingleChoice.value === item.id,
                   })}
                   key={ind}
                 >
                   <FormControlLabel
-                    value={item.option}
+                    value={item.id}
                     control={<Radio />}
                     label={item.option}
                   />

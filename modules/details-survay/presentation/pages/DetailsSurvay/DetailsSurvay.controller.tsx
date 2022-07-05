@@ -8,6 +8,7 @@ import MultiAnswerComponent from "../../components/MultiAnswer";
 import NumberComponent from "../../components/Number";
 import ShortTextComponent from "../../components/ShortText";
 import SingleAnswerComponent from "../../components/SingleAnswer";
+import SubmitForm from "../../components/submitForm";
 export type DetailsSurvayProps = {
   data: any;
 };
@@ -19,50 +20,81 @@ export const statusPageType = {
 };
 
 export default function useDetailsSurvayController(props: DetailsSurvayProps) {
-  const [formData, setFormData] = useState([]);
-  const [priority, setPriority] = useState(1);
+  const [thisQuestion, setthisQuestion] = useState<any>([]);
+  const [priority, setPriority] = useState<number>(1);
   const [statusPage, setstatusPage] = useState(statusPageType.start);
   const { data } = props;
-
-  useEffect(() => {
-    console.log("data", data);
-  }, [data]);
-
-  const typeComponents = (props: any): any => ({
-    "multiple choice": <MultiAnswerComponent {...props} />,
-    "single choice": <SingleAnswerComponent {...props} />,
-    "short description": <ShortTextComponent {...props} />,
-    "long description": <ShortTextComponent {...props} />,
-    // number: <LongTextComponent {...props} />,
-    list: <ListComponent {...props} />,
-    matrix: <MatrixComponent {...props} />,
-    priority: <MatrixComponent {...props} />,
-    evaluate: <EvaluateComponent {...props} />,
-    number: <NumberComponent {...props} />,
-    date: <DateComponent {...props} />,
+  const { DataSingleChoice, DataMultiChoice } = SubmitForm({
+    thisQuestion,
+    priority,
   });
 
   useEffect(() => {
-    let res: any = data?.form?.questions.map((item: any, ind: number) => {
-      return {
-        type: item.type,
-        data: item,
-        priority: ind + 1,
-      };
-    });
+    console.log("thisQuestion", thisQuestion);
+  }, [thisQuestion]);
 
-    setFormData(res);
-  }, []);
+  let isDisabledButton = () => {
+    if (thisQuestion[0].required === 0) return false;
+
+    if (thisQuestion[0].type === "single choice" && !DataSingleChoice.value) {
+      return true;
+    } else if (
+      thisQuestion[0].type === "multiple choice" &&
+      !DataMultiChoice.value.hasOwnProperty()
+    ) {
+      return true;
+    }
+
+    return false;
+  };
+
+  const typeComponents = (): any => {
+    const { data } = thisQuestion[0];
+    return {
+      "multiple choice": (
+        <MultiAnswerComponent {...{ data, DataMultiChoice }} />
+      ),
+      "single choice": (
+        <SingleAnswerComponent {...{ data, DataSingleChoice }} />
+      ),
+      "short description": <ShortTextComponent {...{ data }} />,
+      "long description": <ShortTextComponent {...{ data }} />,
+      // number: <LongTextComponent {...{ data}}  />,
+      list: <ListComponent {...{ data }} />,
+      matrix: <MatrixComponent {...{ data }} />,
+      priority: <MatrixComponent {...{ data }} />,
+      evaluate: <EvaluateComponent {...{ data }} />,
+      number: <NumberComponent {...{ data }} />,
+      date: <DateComponent {...{ data }} />,
+    };
+  };
+
+  useEffect(() => {
+    let res: any = data?.form?.questions
+      .filter((item: any, ind: number) => ind + 1 === priority)
+      .map((item: any, ind: number) => {
+        return {
+          type: item.type,
+          id: item.id,
+          data: item,
+          priority: ind + 1,
+        };
+      });
+
+    setthisQuestion(res);
+  }, [priority]);
 
   const {} = props;
   return {
     ...props,
-    formData,
+    thisQuestion,
     priority,
     typeComponents,
     setPriority,
     statusPage,
     setstatusPage,
+    data,
+    isDisabledButton,
   };
 }
 

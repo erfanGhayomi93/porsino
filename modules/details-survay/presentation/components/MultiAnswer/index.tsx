@@ -13,18 +13,18 @@ import {
 import clsx from "clsx";
 
 export default function MultiAnswerComponent(props: MultiAnswerProps) {
-  const { text, description, options } = useMultiAnswerController(props);
+  const { text, description, options, DataMultiChoice } =
+    useMultiAnswerController(props);
 
-  // {
-  //   id: 7199,
-  //   question_id: 2633,
-  //   option: "ماشین اصلاح صورت",
-  //   type: 1,
-  //   created_at: null,
-  //   updated_at: "2022-06-09T07:05:47.000000Z",
-  //   option_index: null,
-  //   answer: 0,
-  // },
+  const handleChange = (
+    event: React.ChangeEvent<HTMLInputElement>,
+    id: number
+  ) => {
+    DataMultiChoice.setvalue((prev: any) => ({
+      ...prev,
+      [id]: event.target.checked,
+    }));
+  };
 
   return (
     <Container maxWidth="lg">
@@ -40,28 +40,25 @@ export default function MultiAnswerComponent(props: MultiAnswerProps) {
           </Box>
 
           <Box className={styles.content}>
-            <RadioGroup
-              aria-labelledby="demo-controlled-radio-buttons-group"
-              name="controlled-radio-buttons-group"
-              // value={value}
-              // onChange={handleChange}
-            >
-              {options.map((item: any, ind: number) => (
-                <div
-                  className={clsx({
-                    [styles.item]: true,
-                    [styles.selected]: ind === 2,
-                  })}
-                  key={ind}
-                >
-                  <FormControlLabel
-                    value={item.option}
-                    control={<Checkbox />}
-                    label={item.option}
-                  />
-                </div>
-              ))}
-            </RadioGroup>
+            {options.map((item: any, ind: number) => (
+              <div
+                className={clsx({
+                  [styles.item]: true,
+                  [styles.selected]: DataMultiChoice?.value[item.id]
+                    ? true
+                    : false,
+                })}
+                key={ind}
+              >
+                <FormControlLabel
+                  value={item.id}
+                  control={<Checkbox />}
+                  label={item.option}
+                  checked={DataMultiChoice?.value[item.id] ? true : false}
+                  onChange={(e: any) => handleChange(e, item.id)}
+                />
+              </div>
+            ))}
           </Box>
         </div>
       </div>

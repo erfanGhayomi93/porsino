@@ -24,6 +24,7 @@ type propTypes = {
   onClick?: () => void;
   padding?: string;
   className?: any;
+  disabled?: any;
 };
 
 export default function ButtonCustomComponent({
@@ -34,6 +35,7 @@ export default function ButtonCustomComponent({
   onClick,
   padding,
   className,
+  disabled,
 }: propTypes) {
   const checkStyles = () => {
     let res: any = { padding: "11px 21px" };
@@ -62,6 +64,7 @@ export default function ButtonCustomComponent({
       style={checkStyles()}
       onClick={onClick}
       className={clsx("strong", className)}
+      disabled={disabled}
     >
       {label}
     </Button>
