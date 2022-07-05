@@ -1,6 +1,6 @@
 import useDateController, { DateProps } from "./Date.controller";
 import styles from "./Date.module.scss";
-import { Box, Container, Rating, Typography } from "@mui/material";
+import { Box, Container, Typography } from "@mui/material";
 import InputTextComponent from "@/core/components/common/form/InputText";
 import { RiArrowDownSLine } from "react-icons/ri";
 
