@@ -1,5 +1,5 @@
 import { Dispatch, SetStateAction, useState } from "react";
-import { useDebouncedEffect } from ".";
+import useDebouncedEffect from "./useDebouncedEffect";
 
 export default function useDebouncedState<T = any>(
   initialValue: T,
