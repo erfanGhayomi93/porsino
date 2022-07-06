@@ -2,7 +2,7 @@ import { useEffect, useState } from "react";
 import DateComponent from "../../components/Date";
 import EvaluateComponent from "../../components/Evaluate";
 import ListComponent from "../../components/List";
-import LongTextComponent from "../../components/LongText";
+// import LongTextComponent from "../../components/LongText";
 import MatrixComponent from "../../components/Matrix";
 import MultiAnswerComponent from "../../components/MultiAnswer";
 import NumberComponent from "../../components/Number";
