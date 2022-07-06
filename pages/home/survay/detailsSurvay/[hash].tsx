@@ -1,7 +1,7 @@
 import getDetailsSurvayUC from "@/modules/details-survay/domain/usecases";
 import DetailsSurvayPage from "@/modules/details-survay/presentation/pages/DetailsSurvay";
 import getPollsDataUC from "@/modules/home/survay/domain/usecases";
-import { GetStaticProps, NextPage } from "next";
+import { GetStaticPaths, GetStaticProps, NextPage } from "next";
 import { ParsedUrlQuery } from "querystring";
 
 export interface IParams extends ParsedUrlQuery {
@@ -24,10 +24,11 @@ export const getStaticProps: GetStaticProps = async (context) => {
     props: {
       data: dataPoll.data,
     },
+    revalidate: 60 * 10,
   };
 };
 
-export const getStaticPaths: any = async () => {
+export const getStaticPaths: GetStaticPaths = async () => {
   const dataPolls: any = await getPollsDataUC();
 
   const setPaths = () => {
