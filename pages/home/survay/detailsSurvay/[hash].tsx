@@ -28,21 +28,21 @@ export const getStaticProps: GetStaticProps = async (context) => {
   };
 };
 
-export const getStaticPaths: GetStaticPaths = async () => {
-  const dataPolls: any = await getPollsDataUC();
+// export const getStaticPaths: GetStaticPaths = async () => {
+//   const dataPolls: any = await getPollsDataUC();
 
-  const setPaths = () => {
-    if (!dataPolls?.data) {
-      return [];
-    }
+//   const setPaths = () => {
+//     if (!dataPolls?.data) {
+//       return [];
+//     }
 
-    return dataPolls?.data?.map((item: any) => ({
-      params: { hash: item?.hash },
-    }));
-  };
+//     return dataPolls?.data?.map((item: any) => ({
+//       params: { hash: item?.hash },
+//     }));
+//   };
 
-  return {
-    paths: setPaths(),
-    fallback: "blocking",
-  };
-};
+//   return {
+//     paths: setPaths(),
+//     fallback: "blocking",
+//   };
+// };
