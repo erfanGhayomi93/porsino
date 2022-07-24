@@ -3,7 +3,7 @@ import useShortTextController, { ShortTextProps } from "./ShortText.controller";
 import styles from "./ShortText.module.scss";
 
 export default function ShortTextComponent(props: ShortTextProps) {
-  const { text, discription } = useShortTextController(props);
+  const { text, discription, value, setvalue } = useShortTextController(props);
 
   return (
     <Container maxWidth="lg">
@@ -25,6 +25,8 @@ export default function ShortTextComponent(props: ShortTextProps) {
               placeholder="محل درج پاسخ ..."
               style={{ width: 200 }}
               className={styles.textArea}
+              value={value}
+              onChange={(e) => setvalue(e.target.value)}
             />
           </Box>
         </div>

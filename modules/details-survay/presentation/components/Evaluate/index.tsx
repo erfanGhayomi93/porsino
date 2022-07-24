@@ -1,12 +1,17 @@
 import useEvaluateController, { EvaluateProps } from "./Evaluate.controller";
 import styles from "./Evaluate.module.scss";
 import { Box, Container, Rating, Typography } from "@mui/material";
-import { useState } from "react";
 
 export default function EvaluateComponent(props: EvaluateProps) {
-  const { text, description, questions, countStar } =
+  const { text, description, questions, countStar, DataEvaluate } =
     useEvaluateController(props);
-  const [value, setValue] = useState<number | null>(1);
+
+  const handleChange = (newValue: number | null, question_id: number) => {
+    DataEvaluate.setvalue((prev: any) => ({
+      ...prev,
+      [question_id]: newValue,
+    }));
+  };
 
   return (
     <Container maxWidth="lg">
@@ -18,9 +23,9 @@ export default function EvaluateComponent(props: EvaluateProps) {
         </Box>
         <Box className={styles.content}>
           {questions
-            .filter((item: any) => {
-              if (item.type === 2) return true;
-            })
+            // .filter((item: any) => {
+            //   if (item.type === 2) return true;
+            // })
             .map((item: any) => (
               <div className={styles.box} key={item.id}>
                 <Box className={styles.question}>
@@ -32,11 +37,11 @@ export default function EvaluateComponent(props: EvaluateProps) {
                 <Box className={styles.options}>
                   <Rating
                     name="simple-controlled"
-                    value={value}
+                    value={DataEvaluate.value[item.id] || null}
                     max={countStar}
-                    onChange={(event, newValue) => {
-                      setValue(newValue);
-                    }}
+                    onChange={(event, newValue: number | null) =>
+                      handleChange(newValue, item.id)
+                    }
                     size="large"
                   />
                 </Box>

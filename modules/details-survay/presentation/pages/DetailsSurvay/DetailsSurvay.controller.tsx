@@ -19,28 +19,46 @@ export const statusPageType = {
   finish: "finish",
 };
 
+export const statusQuestionType = {
+  singleChoice: "single choice",
+  multipleChoice: "multiple choice",
+  shortDescription: "short description",
+  evaluate: "evaluate",
+};
+
 export default function useDetailsSurvayController(props: DetailsSurvayProps) {
   const [thisQuestion, setthisQuestion] = useState<any>([]);
   const [priority, setPriority] = useState<number>(1);
   const [statusPage, setstatusPage] = useState(statusPageType.start);
   const { data } = props;
-  const { DataSingleChoice, DataMultiChoice } = SubmitForm({
+  const {
+    DataSingleChoice,
+    DataMultiChoice,
+    DataEvaluate,
+    DataShortDescription,
+  } = SubmitForm({
     thisQuestion,
     priority,
   });
 
-  useEffect(() => {
-    console.log("thisQuestion", thisQuestion);
-  }, [thisQuestion]);
+  // useEffect(() => {
+  //   console.log("thisQuestion", thisQuestion);
+  // }, [thisQuestion]);
 
   let isDisabledButton = () => {
-    if (thisQuestion[0].required === 0) return false;
-
-    if (thisQuestion[0].type === "single choice" && !DataSingleChoice.value) {
+    const { singleChoice, multipleChoice, shortDescription } =
+      statusQuestionType;
+    if (thisQuestion[0].data.required === 0) return false;
+    else if (thisQuestion[0].type === singleChoice && !DataSingleChoice.value) {
       return true;
     } else if (
-      thisQuestion[0].type === "multiple choice" &&
-      !DataMultiChoice.value.hasOwnProperty()
+      thisQuestion[0].type === multipleChoice &&
+      Object.keys(DataMultiChoice.value).length === 0
+    ) {
+      return true;
+    } else if (
+      thisQuestion[0].type === shortDescription &&
+      !DataShortDescription.value
     ) {
       return true;
     }
@@ -57,13 +75,15 @@ export default function useDetailsSurvayController(props: DetailsSurvayProps) {
       "single choice": (
         <SingleAnswerComponent {...{ data, DataSingleChoice }} />
       ),
-      "short description": <ShortTextComponent {...{ data }} />,
-      "long description": <ShortTextComponent {...{ data }} />,
-      // number: <LongTextComponent {...{ data}}  />,
+      "short description": (
+        <ShortTextComponent {...{ data, DataShortDescription }} />
+      ),
+      // "long description": <ShortTextComponent {...{ data }} />,
+      // // number: <LongTextComponent {...{ data}}  />,
       list: <ListComponent {...{ data }} />,
       matrix: <MatrixComponent {...{ data }} />,
       priority: <MatrixComponent {...{ data }} />,
-      evaluate: <EvaluateComponent {...{ data }} />,
+      evaluate: <EvaluateComponent {...{ data, DataEvaluate }} />,
       number: <NumberComponent {...{ data }} />,
       date: <DateComponent {...{ data }} />,
     };

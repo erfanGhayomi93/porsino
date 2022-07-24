@@ -7,7 +7,6 @@ import {
   Checkbox,
   Container,
   FormControlLabel,
-  RadioGroup,
   Typography,
 } from "@mui/material";
 import clsx from "clsx";
@@ -20,10 +19,19 @@ export default function MultiAnswerComponent(props: MultiAnswerProps) {
     event: React.ChangeEvent<HTMLInputElement>,
     id: number
   ) => {
-    DataMultiChoice.setvalue((prev: any) => ({
-      ...prev,
-      [id]: event.target.checked,
-    }));
+    DataMultiChoice.setvalue((prev: any) => {
+      let res = {};
+      if (!event.target.checked) {
+        const { [id]: _id, ...rest } = prev;
+        return rest;
+      } else {
+        res = {
+          ...prev,
+          [id]: event.target.checked,
+        };
+        return res;
+      }
+    });
   };
 
   return (

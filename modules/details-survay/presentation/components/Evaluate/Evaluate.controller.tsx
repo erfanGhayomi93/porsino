@@ -2,10 +2,11 @@ import { useEffect, useState } from "react";
 
 export type EvaluateProps = {
   data: any;
+  DataEvaluate: any;
 };
 
 export default function useEvaluateController(props: EvaluateProps) {
-  const { data } = props;
+  const { data, DataEvaluate } = props;
   const [questions, setquestions] = useState([]);
   const [countStar, setcountStar] = useState(0);
 
@@ -21,5 +22,5 @@ export default function useEvaluateController(props: EvaluateProps) {
     setcountStar(count);
   }, []);
 
-  return { ...props, ...data, questions, countStar };
+  return { ...props, ...data, questions, countStar, DataEvaluate };
 }
